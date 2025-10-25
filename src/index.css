@@ -444,3 +444,18 @@ body {
 .mouse-scroll {
   animation: mouseScroll 2s ease-in-out infinite;
 }
+
+/* Holographic scan lines animation */
+@keyframes hologramScan {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
