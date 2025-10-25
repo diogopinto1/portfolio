@@ -17,9 +17,9 @@ const Layout = ({ children }) => {
   return (
     <div className="min-h-screen" style={{ background: 'var(--dark-bg)' }}>
       {/* Header */}
-      <header className="sticky top-4 z-50 mx-4">
+      <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4">
         <div className="container mx-auto max-w-6xl">
-            <div className="flex items-center justify-between rounded-xl glass-header px-6 py-4">
+            <div className="flex items-center justify-between rounded-xl fixed-header px-6 py-4">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3">
               <div className="w-12 h-12 rounded-lg overflow-hidden profile-image">
@@ -132,7 +132,7 @@ const Layout = ({ children }) => {
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto max-w-6xl px-4 py-8">
+      <main className="container mx-auto max-w-6xl px-4 pt-24 pb-8">
         {children}
       </main>
 

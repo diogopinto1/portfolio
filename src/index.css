@@ -229,6 +229,18 @@ a {
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Fixed header with enhanced blur */
+.fixed-header {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-bottom: 1px solid rgba(74, 222, 128, 0.2);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.4),
+    0 1px 0 rgba(74, 222, 128, 0.1);
 }
 
 /* Profile image styles */
