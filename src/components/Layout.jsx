@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, Github, Linkedin, Mail, Download } from 'lucide-react'
+import NatureEffects from './NatureEffects'
+import FloatingElements from './FloatingElements'
+import LightEffects from './LightEffects'
 
 const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -16,6 +19,11 @@ const Layout = ({ children }) => {
 
   return (
     <div className="min-h-screen" style={{ background: 'var(--dark-bg)' }}>
+      {/* Nature Effects */}
+      <LightEffects />
+      <FloatingElements />
+      <NatureEffects />
+      
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4">
         <div className="container mx-auto max-w-6xl">

@@ -261,3 +261,84 @@ a {
     0 0 0 1px rgba(74, 222, 128, 0.2);
   transform: scale(1.05);
 }
+
+/* Nature Effects Styles */
+.nature-float {
+  animation: natureFloat 6s ease-in-out infinite;
+}
+
+@keyframes natureFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(0.5deg);
+  }
+}
+
+.leaf-float {
+  animation: leafFloat 8s ease-in-out infinite;
+}
+
+@keyframes leafFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-8px) rotate(2deg) scale(1.05);
+  }
+  50% {
+    transform: translateY(-12px) rotate(-1deg) scale(0.95);
+  }
+  75% {
+    transform: translateY(-6px) rotate(1deg) scale(1.02);
+  }
+}
+
+/* Particle effects */
+.particle-glow {
+  box-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
+  animation: particlePulse 3s ease-in-out infinite;
+}
+
+@keyframes particlePulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+/* Light effects */
+.light-ambient {
+  background: radial-gradient(
+    circle at 30% 20%, 
+    rgba(74, 222, 128, 0.1) 0%, 
+    transparent 50%
+  );
+  animation: lightMove 20s ease-in-out infinite;
+}
+
+@keyframes lightMove {
+  0%, 100% {
+    transform: translateX(0) translateY(0);
+  }
+  25% {
+    transform: translateX(20px) translateY(-10px);
+  }
+  50% {
+    transform: translateX(-15px) translateY(15px);
+  }
+  75% {
+    transform: translateX(10px) translateY(-5px);
+  }
+}
