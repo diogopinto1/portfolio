@@ -80,7 +80,7 @@ const About = () => {
                 }}
               >
                 <img
-                  src="/portfolio/emoji555.png"
+                  src="/portfolio/emoji55.png"
                   alt="Diogo Pinto - Data Scientist"
                   className="w-full h-full object-cover absolute inset-0"
                   style={{
