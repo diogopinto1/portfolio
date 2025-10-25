@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Code, Database, Brain, Download, Eye } from 'lucide-react'
+import ScrollMouseIcon from '../components/ScrollMouseIcon'
 
 const Home = () => {
   const skills = [
@@ -121,6 +122,9 @@ const Home = () => {
           <ArrowRight className="ml-2" size={20} />
         </Link>
       </section>
+      
+      {/* Scroll Mouse Icon */}
+      <ScrollMouseIcon />
     </div>
   )
 }
