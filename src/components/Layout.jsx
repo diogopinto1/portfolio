@@ -19,11 +19,15 @@ const Layout = ({ children }) => {
       {/* Header */}
       <header className="sticky top-4 z-50 mx-4">
         <div className="container mx-auto max-w-6xl">
-            <div className="flex items-center justify-between rounded-xl nature-card px-6 py-4 nature-glow">
+            <div className="flex items-center justify-between rounded-xl glass-header px-6 py-4">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-nature-green-500 to-nature-green-400 flex items-center justify-center text-white font-bold text-lg tech-glow">
-                DP
+              <div className="w-12 h-12 rounded-lg overflow-hidden profile-image">
+                <img 
+                  src="/portfolio/emoji3.png" 
+                  alt="Diogo Pinto" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold text-white">
@@ -81,7 +85,7 @@ const Layout = ({ children }) => {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="md:hidden mt-4 rounded-xl nature-card p-4">
+            <div className="md:hidden mt-4 rounded-xl glass-header p-4">
               <nav className="flex flex-col space-y-4">
                 {navigation.map((item) => (
                   <Link
