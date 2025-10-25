@@ -40,6 +40,9 @@ body {
   color: var(--text-primary);
   background: var(--dark-bg);
   background-image: 
+    /* Dark gradient from top to bottom */
+    linear-gradient(180deg, rgba(2, 6, 23, 0.8) 0%, rgba(15, 23, 42, 0.4) 30%, rgba(15, 23, 42, 0.1) 60%, transparent 100%),
+    /* Green nature gradients */
     linear-gradient(180deg, rgba(74, 222, 128, 0.2) 0%, rgba(34, 197, 94, 0.1) 20%, transparent 50%),
     radial-gradient(circle at 20% 80%, rgba(74, 222, 128, 0.15) 0%, transparent 60%),
     radial-gradient(circle at 80% 20%, rgba(34, 197, 94, 0.1) 0%, transparent 60%),
