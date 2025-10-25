@@ -262,6 +262,48 @@ body {
   transform: scale(1.05);
 }
 
+/* Worn/weathered image effects for About page */
+.worn-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.worn-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(74, 222, 128, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.08) 0%, transparent 50%),
+    linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.1) 50%, transparent 100%);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.worn-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(74, 222, 128, 0.03) 2px,
+      rgba(74, 222, 128, 0.03) 4px
+    );
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.6;
+}
+
 /* Nature Effects Styles */
 .nature-float {
   animation: natureFloat 6s ease-in-out infinite;

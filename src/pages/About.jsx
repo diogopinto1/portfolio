@@ -55,16 +55,55 @@ const About = () => {
             </div>
             
             {/* Profile Image - Desktop Only */}
-            <div className="hidden lg:block flex-shrink-0 mt-8 lg:mt-0">
-              <img
-                src="/portfolio/emoji555.png"
-                alt="Diogo Pinto - Data Scientist"
-                className="w-80 h-80 object-cover opacity-90 hover:opacity-100 transition-opacity duration-300"
+            <div className="hidden lg:block flex-shrink-0 mt-8 lg:mt-0 relative">
+              <div 
+                className="w-96 h-96 worn-image"
                 style={{
-                  filter: 'drop-shadow(0 0 20px rgba(74, 222, 128, 0.3))',
-                  borderRadius: '20px'
+                  maskImage: `
+                    radial-gradient(ellipse 80% 70% at 50% 50%, 
+                      rgba(0,0,0,1) 0%, 
+                      rgba(0,0,0,0.8) 40%, 
+                      rgba(0,0,0,0.4) 70%, 
+                      rgba(0,0,0,0) 100%
+                    )
+                  `,
+                  WebkitMaskImage: `
+                    radial-gradient(ellipse 80% 70% at 50% 50%, 
+                      rgba(0,0,0,1) 0%, 
+                      rgba(0,0,0,0.8) 40%, 
+                      rgba(0,0,0,0.4) 70%, 
+                      rgba(0,0,0,0) 100%
+                    )
+                  `,
+                  mixBlendMode: 'multiply',
+                  filter: 'contrast(1.1) brightness(0.9) saturate(1.2)',
                 }}
-              />
+              >
+                <img
+                  src="/portfolio/emoji555.png"
+                  alt="Diogo Pinto - Data Scientist"
+                  className="w-full h-full object-cover absolute inset-0"
+                  style={{
+                    transform: 'scale(1.1) translateY(-10px)',
+                    filter: 'blur(0.5px)',
+                  }}
+                />
+                {/* Efeito de partículas flutuantes sobre a imagem */}
+                <div className="absolute inset-0 pointer-events-none">
+                  {[...Array(8)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="absolute w-1 h-1 bg-nature-green-400 rounded-full opacity-30"
+                      style={{
+                        left: `${20 + i * 10}%`,
+                        top: `${30 + (i % 3) * 20}%`,
+                        animation: `particleFloat ${3 + i * 0.5}s ease-in-out infinite`,
+                        animationDelay: `${i * 0.3}s`,
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
