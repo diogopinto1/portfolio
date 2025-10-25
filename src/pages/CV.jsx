@@ -1,7 +1,16 @@
-import React from 'react'
-import { Download, Mail, Linkedin, Github, Calendar, MapPin, Building, Award, BookOpen, Code, Database, Brain } from 'lucide-react'
+import React, { useState } from 'react'
+import { Download, Mail, Linkedin, Github, Calendar, MapPin, Building, Award, BookOpen, Code, Database, Brain, ChevronDown, ChevronUp } from 'lucide-react'
 
 const CV = () => {
+  const [expandedCards, setExpandedCards] = useState({})
+
+  const toggleCard = (index) => {
+    setExpandedCards(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }))
+  }
+
   const experiences = [
     {
       title: "Senior Data Scientist",
@@ -9,6 +18,14 @@ const CV = () => {
       location: "Lisbon, Portugal",
       period: "2022 - Present",
       description: "Developed machine learning models for crop yield prediction and precision agriculture using satellite imagery and IoT sensor data.",
+      details: [
+        "Led a team of 3 data scientists in developing ML models for crop yield prediction",
+        "Implemented computer vision algorithms for satellite image analysis achieving 94% accuracy",
+        "Built MLOps pipeline for model deployment and monitoring using AWS and Docker",
+        "Collaborated with agricultural experts to validate model predictions in real field conditions",
+        "Published 2 research papers on precision agriculture applications"
+      ],
+      technologies: ["Python", "TensorFlow", "AWS", "Docker", "PostgreSQL", "Git"],
       icon: <Database className="w-5 h-5" />
     },
     {
@@ -17,6 +34,14 @@ const CV = () => {
       location: "Remote",
       period: "2021 - 2022",
       description: "Built scalable web applications for environmental monitoring and sustainable agriculture management systems.",
+      details: [
+        "Developed full-stack web applications using React, Node.js, and PostgreSQL",
+        "Implemented real-time data visualization dashboards for IoT sensor data",
+        "Designed RESTful APIs for mobile and web applications",
+        "Integrated third-party services for weather data and satellite imagery",
+        "Optimized application performance resulting in 40% faster load times"
+      ],
+      technologies: ["React", "Node.js", "PostgreSQL", "JavaScript", "Express", "MongoDB"],
       icon: <Code className="w-5 h-5" />
     },
     {
@@ -25,6 +50,14 @@ const CV = () => {
       location: "Porto, Portugal",
       period: "2020 - 2021",
       description: "Analyzed large environmental datasets to provide insights on climate change impacts and sustainable farming practices.",
+      details: [
+        "Analyzed over 10TB of environmental data using Python and R",
+        "Created statistical models to predict climate change impacts on agriculture",
+        "Developed data visualization tools for research presentations",
+        "Collaborated with research teams on 5+ published studies",
+        "Presented findings at 3 international conferences"
+      ],
+      technologies: ["Python", "R", "Pandas", "Matplotlib", "Jupyter", "SQL"],
       icon: <Brain className="w-5 h-5" />
     }
   ]
@@ -149,7 +182,7 @@ const CV = () => {
 
       {/* Experience Section */}
       <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <div className="text-8xl font-bold text-gray-200 mb-4">02</div>
             <h2 className="text-4xl font-bold text-white mb-4 text-tech">Experience</h2>
@@ -158,32 +191,87 @@ const CV = () => {
             </p>
           </div>
 
-          <div className="space-y-8">
-            {experiences.map((exp, index) => (
-              <div key={index} className="nature-card rounded-xl p-6 hover:nature-glow transition-all duration-300 relative">
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white mb-2 text-tech">{exp.title}</h3>
-                    <div className="flex items-center text-nature-green-400 mb-2">
-                      <Building className="w-4 h-4 mr-2" />
-                      <span className="font-medium">{exp.company}</span>
-                    </div>
-                    <div className="flex items-center text-gray-400 text-sm mb-2">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      <span className="mr-4">{exp.period}</span>
-                      <MapPin className="w-4 h-4 mr-2" />
-                      <span>{exp.location}</span>
-                    </div>
-                    <p className="text-gray-300 mt-3">{exp.description}</p>
-                  </div>
-                  <div className="ml-4">
-                    <div className="w-10 h-10 bg-nature-green-500/20 rounded-full flex items-center justify-center text-nature-green-400 nature-glow">
-                      {exp.icon}
+          {/* Timeline Container */}
+          <div className="relative">
+            {/* Vertical Timeline Line */}
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-nature-green-500 to-nature-green-600"></div>
+            
+            {/* Experience Cards */}
+            <div className="space-y-12">
+              {experiences.map((exp, index) => (
+                <div key={index} className={`relative flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                  {/* Timeline Dot */}
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-nature-green-500 rounded-full border-4 border-gray-800 z-10 nature-glow"></div>
+                  
+                  {/* Experience Card */}
+                  <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
+                    <div 
+                      className="nature-card rounded-xl p-6 hover:nature-glow transition-all duration-300 cursor-pointer"
+                      onClick={() => toggleCard(index)}
+                    >
+                      {/* Card Header */}
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="flex-1">
+                          <h3 className="text-xl font-bold text-white mb-2 text-tech">{exp.title}</h3>
+                          <div className="flex items-center text-nature-green-400 mb-2">
+                            <Building className="w-4 h-4 mr-2" />
+                            <span className="font-medium">{exp.company}</span>
+                          </div>
+                          <div className="flex items-center text-gray-400 text-sm mb-2">
+                            <Calendar className="w-4 h-4 mr-2" />
+                            <span className="mr-4">{exp.period}</span>
+                            <MapPin className="w-4 h-4 mr-2" />
+                            <span>{exp.location}</span>
+                          </div>
+                          <p className="text-gray-300 text-sm">{exp.description}</p>
+                        </div>
+                        <div className="ml-4 flex items-center">
+                          <div className="w-10 h-10 bg-nature-green-500/20 rounded-full flex items-center justify-center text-nature-green-400 nature-glow mr-3">
+                            {exp.icon}
+                          </div>
+                          <div className="text-nature-green-400">
+                            {expandedCards[index] ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Expanded Content */}
+                      {expandedCards[index] && (
+                        <div className="mt-4 pt-4 border-t border-gray-700 animate-fadeIn">
+                          {/* Key Achievements */}
+                          <div className="mb-4">
+                            <h4 className="text-lg font-semibold text-white mb-3 text-tech">Key Achievements</h4>
+                            <ul className="space-y-2">
+                              {exp.details.map((detail, detailIndex) => (
+                                <li key={detailIndex} className="flex items-start text-gray-300 text-sm">
+                                  <span className="w-2 h-2 bg-nature-green-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                  {detail}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          {/* Technologies Used */}
+                          <div>
+                            <h4 className="text-lg font-semibold text-white mb-3 text-tech">Technologies Used</h4>
+                            <div className="flex flex-wrap gap-2">
+                              {exp.technologies.map((tech, techIndex) => (
+                                <span
+                                  key={techIndex}
+                                  className="px-3 py-1 bg-nature-green-500/20 text-nature-green-400 border border-nature-green-500/40 rounded-full text-sm font-medium"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
