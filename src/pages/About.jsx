@@ -56,13 +56,15 @@ const About = () => {
             
             {/* Profile Image - Desktop Only */}
             <div className="hidden lg:block flex-shrink-0 mt-8 lg:mt-0">
-              <div className="w-80 h-80 rounded-2xl overflow-hidden nature-glow">
-                <img
-                  src="/portfolio/emoji555.png"
-                  alt="Diogo Pinto - Data Scientist"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <img
+                src="/portfolio/emoji555.png"
+                alt="Diogo Pinto - Data Scientist"
+                className="w-80 h-80 object-cover opacity-90 hover:opacity-100 transition-opacity duration-300"
+                style={{
+                  filter: 'drop-shadow(0 0 20px rgba(74, 222, 128, 0.3))',
+                  borderRadius: '20px'
+                }}
+              />
             </div>
           </div>
         </div>
