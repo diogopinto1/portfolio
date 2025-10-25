@@ -4,6 +4,7 @@ const NatureEffects = () => {
   const canvasRef = useRef(null)
   const animationRef = useRef(null)
   const particlesRef = useRef([])
+  const mouseRef = useRef({ x: 0, y: 0 })
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -11,6 +12,11 @@ const NatureEffects = () => {
 
     const ctx = canvas.getContext('2d')
     let animationId
+
+    // Mouse tracking
+    const handleMouseMove = (e) => {
+      mouseRef.current = { x: e.clientX, y: e.clientY }
+    }
 
     // Resize canvas
     const resizeCanvas = () => {
@@ -29,16 +35,17 @@ const NatureEffects = () => {
       reset() {
         this.x = Math.random() * canvas.width
         this.y = -10
-        this.vx = (Math.random() - 0.5) * 0.8 // Increased horizontal movement
-        this.vy = Math.random() * 0.8 + 0.3 // Increased vertical speed
-        this.size = Math.random() * 4 + 1.5 // Larger particles
+        this.vx = (Math.random() - 0.5) * 0.3 // Slower horizontal movement
+        this.vy = Math.random() * 0.4 + 0.2 // Slower vertical speed
+        this.size = Math.random() * 3 + 1.5 // Slightly smaller particles
         this.life = 100
-        this.decay = Math.random() * 0.015 + 0.008 // Slower decay for longer visibility
+        this.decay = Math.random() * 0.008 + 0.005 // Slower decay for longer visibility
         this.type = Math.random() > 0.6 ? 'leaf' : 'particle' // More leaves (40% vs 30%)
         this.rotation = Math.random() * Math.PI * 2
-        this.rotationSpeed = (Math.random() - 0.5) * 0.15 // More rotation
+        this.rotationSpeed = (Math.random() - 0.5) * 0.08 // Slower rotation
         this.color = this.getRandomGreenColor()
-        this.windEffect = Math.random() * 0.02 + 0.01 // Wind effect strength
+        this.windEffect = Math.random() * 0.01 + 0.005 // Reduced wind effect
+        this.mouseInfluence = 0 // Mouse influence strength
       }
 
       getRandomGreenColor() {
@@ -56,18 +63,37 @@ const NatureEffects = () => {
       }
 
       update() {
+        // Calculate distance to mouse
+        const dx = mouseRef.current.x - this.x
+        const dy = mouseRef.current.y - this.y
+        const distance = Math.sqrt(dx * dx + dy * dy)
+        
+        // Mouse influence (push effect)
+        if (distance < 150) { // Influence radius
+          const force = (150 - distance) / 150 // Force decreases with distance
+          const angle = Math.atan2(dy, dx)
+          const pushStrength = force * 0.02 // Adjust push strength
+          
+          this.vx += Math.cos(angle) * pushStrength
+          this.vy += Math.sin(angle) * pushStrength
+        }
+
         this.x += this.vx
         this.y += this.vy
         this.rotation += this.rotationSpeed
         this.life -= this.decay
 
-        // Enhanced wind effect with sine wave
-        const windStrength = Math.sin(Date.now() * 0.001 + this.x * 0.01) * this.windEffect
+        // Reduced wind effect with sine wave
+        const windStrength = Math.sin(Date.now() * 0.0005 + this.x * 0.005) * this.windEffect
         this.vx += windStrength
-        this.vx += (Math.random() - 0.5) * 0.02 // Random wind gusts
+        this.vx += (Math.random() - 0.5) * 0.01 // Reduced random wind gusts
 
         // Add slight gravity effect
-        this.vy += 0.001
+        this.vy += 0.0005
+
+        // Damping to prevent particles from moving too fast
+        this.vx *= 0.998
+        this.vy *= 0.998
 
         if (this.life <= 0 || this.y > canvas.height + 10) {
           this.reset()
@@ -137,7 +163,7 @@ const NatureEffects = () => {
     // Initialize particles
     const initParticles = () => {
       particlesRef.current = []
-      for (let i = 0; i < 120; i++) { // Increased from 50 to 120
+      for (let i = 0; i < 80; i++) { // Reduced from 120 to 80 for less density
         particlesRef.current.push(new Particle())
       }
     }
@@ -159,11 +185,13 @@ const NatureEffects = () => {
     initParticles()
     animate()
 
-    // Handle resize
+    // Handle resize and mouse movement
     window.addEventListener('resize', resizeCanvas)
+    window.addEventListener('mousemove', handleMouseMove)
 
     return () => {
       window.removeEventListener('resize', resizeCanvas)
+      window.removeEventListener('mousemove', handleMouseMove)
       if (animationId) {
         cancelAnimationFrame(animationId)
       }
