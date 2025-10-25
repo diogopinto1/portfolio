@@ -39,14 +39,14 @@ const Layout = ({ children }) => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="flex flex-col">
-                <span className="text-lg font-bold text-white">
-                  Diogo Pinto
-                </span>
-                <span className="text-xs text-tech text-nature-green-400">
-                  Data Scientist with a green-science edge
-                </span>
-              </div>
+                     <div className="flex flex-col">
+                       <span className="text-lg font-bold text-white">
+                         Diogo Pinto
+                       </span>
+                       <span className="text-xs text-tech text-nature-green-400">
+                         AI enthusiast — powered by curiosity
+                       </span>
+                     </div>
             </Link>
 
             {/* Desktop Navigation */}
