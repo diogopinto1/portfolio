@@ -56,71 +56,45 @@ const About = () => {
             
             {/* Profile Image - Desktop Only */}
             <div className="hidden lg:block flex-shrink-0 mt-8 lg:mt-0 relative">
-              {/* Contour-based aura effect */}
+              {/* Subtle contour-based aura effect */}
               <div className="relative">
-                {/* Multiple contour glow layers */}
+                {/* Single subtle glow layer */}
                 <div 
                   className="absolute inset-0 w-80 h-80"
                   style={{
                     background: 'url(/portfolio/emoji55.png)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    filter: 'blur(8px) brightness(0) drop-shadow(0 0 15px rgba(74, 222, 128, 0.8))',
-                    transform: 'scale(1.02)',
+                    filter: 'blur(6px) brightness(0) drop-shadow(0 0 8px rgba(74, 222, 128, 0.3))',
+                    transform: 'scale(1.01)',
                     zIndex: 1,
                     mixBlendMode: 'screen'
                   }}
                 />
                 
-                <div 
-                  className="absolute inset-0 w-80 h-80"
-                  style={{
-                    background: 'url(/portfolio/emoji55.png)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    filter: 'blur(12px) brightness(0) drop-shadow(0 0 25px rgba(34, 197, 94, 0.6))',
-                    transform: 'scale(1.04)',
-                    zIndex: 2,
-                    mixBlendMode: 'screen'
-                  }}
-                />
-                
-                <div 
-                  className="absolute inset-0 w-80 h-80"
-                  style={{
-                    background: 'url(/portfolio/emoji55.png)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    filter: 'blur(16px) brightness(0) drop-shadow(0 0 35px rgba(16, 185, 129, 0.4))',
-                    transform: 'scale(1.06)',
-                    zIndex: 3,
-                    mixBlendMode: 'screen'
-                  }}
-                />
-                
-                {/* Main image with enhanced contour glow */}
+                {/* Main image with subtle contour glow */}
                 <div className="relative z-10">
                   <img
                     src="/portfolio/emoji55.png"
                     alt="Diogo Pinto - Data Scientist"
                     className="w-80 h-80 object-cover relative"
                     style={{
-                      filter: 'drop-shadow(0 0 20px rgba(74, 222, 128, 0.6)) drop-shadow(0 0 40px rgba(34, 197, 94, 0.4)) drop-shadow(0 0 60px rgba(16, 185, 129, 0.2))',
-                      transform: 'translateY(-3px)',
+                      filter: 'drop-shadow(0 0 8px rgba(74, 222, 128, 0.2)) drop-shadow(0 0 16px rgba(34, 197, 94, 0.15))',
+                      transform: 'translateY(-2px)',
                       borderRadius: '0' // Remove rounded corners to follow natural shape
                     }}
                   />
                   
-                  {/* Subtle inner glow */}
+                  {/* Very subtle inner glow */}
                   <div 
                     className="absolute inset-0 w-80 h-80 pointer-events-none"
                     style={{
                       background: 'url(/portfolio/emoji55.png)',
                       backgroundSize: 'cover',
                       backgroundPosition: 'center',
-                      filter: 'blur(2px) brightness(1.2) saturate(1.1)',
+                      filter: 'blur(1px) brightness(1.05) saturate(1.02)',
                       mixBlendMode: 'overlay',
-                      opacity: 0.3,
+                      opacity: 0.15,
                       zIndex: 1
                     }}
                   />
