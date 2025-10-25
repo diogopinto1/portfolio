@@ -84,17 +84,17 @@ const CV = () => {
   ]
 
   return (
-    <div className="min-h-screen bg-white text-gray-800">
+    <div className="min-h-screen" style={{ background: 'var(--dark-bg)' }}>
       {/* Hero Section */}
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-4 text-tech">
             Diogo Pinto
           </h1>
-          <h2 className="text-2xl md:text-3xl text-gray-600 mb-6">
+          <h2 className="text-2xl md:text-3xl text-nature-green-400 mb-6 text-tech">
             Data Scientist — AI Enthusiast
           </h2>
-          <p className="text-lg text-gray-500 mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
             Developing AI-driven agricultural solutions through machine learning and remote sensing 
             for sustainable farming and environmental conservation.
           </p>
@@ -103,21 +103,21 @@ const CV = () => {
           <div className="flex justify-center gap-12 mb-12">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-blue-600 mb-2">{stat.number}</div>
-                <div className="text-sm text-gray-500">{stat.label}</div>
+                <div className="text-4xl font-bold text-nature-green-400 mb-2 text-tech">{stat.number}</div>
+                <div className="text-sm text-gray-400">{stat.label}</div>
               </div>
             ))}
           </div>
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="inline-flex items-center px-8 py-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+            <button className="inline-flex items-center px-8 py-4 bg-nature-green-500 text-white font-semibold rounded-lg hover:bg-nature-green-600 transition-all duration-300 nature-glow hover:scale-105">
               <Download className="mr-2" size={20} />
               Download CV
             </button>
             <a
               href="/contact"
-              className="inline-flex items-center px-8 py-4 border-2 border-gray-300 text-gray-700 rounded-lg hover:border-gray-400 transition-colors font-medium"
+              className="inline-flex items-center px-8 py-4 border border-nature-green-500 text-nature-green-400 rounded-lg hover:bg-nature-green-500/10 hover:border-nature-green-400 transition-all duration-300 font-medium"
             >
               Let's Connect
             </a>
@@ -127,57 +127,57 @@ const CV = () => {
           <div className="flex justify-center gap-4 mt-8">
             <a
               href="mailto:diogo.praia10@gmail.com"
-              className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
+              className="w-12 h-12 bg-nature-green-500/20 border border-nature-green-500/40 rounded-full flex items-center justify-center hover:bg-nature-green-500/30 hover:border-nature-green-400 transition-colors nature-glow"
             >
-              <Mail className="w-5 h-5 text-gray-600" />
+              <Mail className="w-5 h-5 text-nature-green-400" />
             </a>
             <a
               href="https://linkedin.com/in/diogopinto"
-              className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
+              className="w-12 h-12 bg-nature-green-500/20 border border-nature-green-500/40 rounded-full flex items-center justify-center hover:bg-nature-green-500/30 hover:border-nature-green-400 transition-colors nature-glow"
             >
-              <Linkedin className="w-5 h-5 text-gray-600" />
+              <Linkedin className="w-5 h-5 text-nature-green-400" />
             </a>
             <a
               href="https://github.com/diogopinto1"
-              className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition-colors"
+              className="w-12 h-12 bg-nature-green-500/20 border border-nature-green-500/40 rounded-full flex items-center justify-center hover:bg-nature-green-500/30 hover:border-nature-green-400 transition-colors nature-glow"
             >
-              <Github className="w-5 h-5 text-gray-600" />
+              <Github className="w-5 h-5 text-nature-green-400" />
             </a>
           </div>
         </div>
       </section>
 
       {/* Experience Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <div className="text-8xl font-bold text-gray-200 mb-4">02</div>
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Experience</h2>
-            <p className="text-lg text-gray-600">
+            <h2 className="text-4xl font-bold text-white mb-4 text-tech">Experience</h2>
+            <p className="text-lg text-gray-300">
               Data Science with a focus on solutions in machine learning, computer vision related to agricultural fields.
             </p>
           </div>
 
           <div className="space-y-8">
             {experiences.map((exp, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 relative">
+              <div key={index} className="nature-card rounded-xl p-6 hover:nature-glow transition-all duration-300 relative">
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">{exp.title}</h3>
-                    <div className="flex items-center text-blue-600 mb-2">
+                    <h3 className="text-xl font-bold text-white mb-2 text-tech">{exp.title}</h3>
+                    <div className="flex items-center text-nature-green-400 mb-2">
                       <Building className="w-4 h-4 mr-2" />
                       <span className="font-medium">{exp.company}</span>
                     </div>
-                    <div className="flex items-center text-gray-500 text-sm mb-2">
+                    <div className="flex items-center text-gray-400 text-sm mb-2">
                       <Calendar className="w-4 h-4 mr-2" />
                       <span className="mr-4">{exp.period}</span>
                       <MapPin className="w-4 h-4 mr-2" />
                       <span>{exp.location}</span>
                     </div>
-                    <p className="text-gray-600 mt-3">{exp.description}</p>
+                    <p className="text-gray-300 mt-3">{exp.description}</p>
                   </div>
                   <div className="ml-4">
-                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
+                    <div className="w-10 h-10 bg-nature-green-500/20 rounded-full flex items-center justify-center text-nature-green-400 nature-glow">
                       {exp.icon}
                     </div>
                   </div>
@@ -193,27 +193,27 @@ const CV = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <div className="text-8xl font-bold text-gray-200 mb-4">03</div>
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Education</h2>
-            <p className="text-lg text-gray-600">
+            <h2 className="text-4xl font-bold text-white mb-4 text-tech">Education</h2>
+            <p className="text-lg text-gray-300">
               Academic background in Agricultural and Environmental Engineering.
             </p>
           </div>
 
           <div className="space-y-8">
             {education.map((edu, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-                <h3 className="text-xl font-bold text-gray-800 mb-2">{edu.degree}</h3>
-                <div className="flex items-center text-blue-600 mb-2">
+              <div key={index} className="nature-card rounded-xl p-6 hover:nature-glow transition-all duration-300">
+                <h3 className="text-xl font-bold text-white mb-2 text-tech">{edu.degree}</h3>
+                <div className="flex items-center text-nature-green-400 mb-2">
                   <Building className="w-4 h-4 mr-2" />
                   <span className="font-medium">{edu.institution}</span>
                 </div>
-                <div className="flex items-center text-gray-500 text-sm mb-2">
+                <div className="flex items-center text-gray-400 text-sm mb-2">
                   <Calendar className="w-4 h-4 mr-2" />
                   <span className="mr-4">{edu.year}</span>
                   <MapPin className="w-4 h-4 mr-2" />
                   <span>{edu.location}</span>
                 </div>
-                <p className="text-gray-600 mt-3">{edu.description}</p>
+                <p className="text-gray-300 mt-3">{edu.description}</p>
               </div>
             ))}
           </div>
@@ -221,31 +221,31 @@ const CV = () => {
       </section>
 
       {/* Publications Section */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <div className="text-8xl font-bold text-gray-200 mb-4">04</div>
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Publications</h2>
-            <p className="text-lg text-gray-600">
+            <h2 className="text-4xl font-bold text-white mb-4 text-tech">Publications</h2>
+            <p className="text-lg text-gray-300">
               Research contributions in agricultural technology and environmental science.
             </p>
           </div>
 
           <div className="space-y-6">
             {publications.map((pub, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-                <h3 className="text-lg font-bold text-gray-800 mb-2">{pub.title}</h3>
-                <div className="flex items-center text-blue-600 mb-2">
+              <div key={index} className="nature-card rounded-xl p-6 hover:nature-glow transition-all duration-300">
+                <h3 className="text-lg font-bold text-white mb-2 text-tech">{pub.title}</h3>
+                <div className="flex items-center text-nature-green-400 mb-2">
                   <BookOpen className="w-4 h-4 mr-2" />
                   <span className="font-medium">{pub.journal}</span>
                 </div>
-                <div className="flex items-center text-gray-500 text-sm mb-2">
+                <div className="flex items-center text-gray-400 text-sm mb-2">
                   <Calendar className="w-4 h-4 mr-2" />
                   <span className="mr-4">{pub.year}</span>
                   <Award className="w-4 h-4 mr-2" />
                   <span>{pub.type}</span>
                 </div>
-                <p className="text-gray-600 text-sm">{pub.authors}</p>
+                <p className="text-gray-300 text-sm">{pub.authors}</p>
               </div>
             ))}
           </div>
@@ -257,21 +257,21 @@ const CV = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <div className="text-8xl font-bold text-gray-200 mb-4">05</div>
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Skills & Technologies</h2>
-            <p className="text-lg text-gray-600">
+            <h2 className="text-4xl font-bold text-white mb-4 text-tech">Skills & Technologies</h2>
+            <p className="text-lg text-gray-300">
               Technical expertise across data science, web development, and agricultural technology.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
             {skills.map((skill, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
-                <h3 className="text-xl font-bold text-gray-800 mb-4">{skill.category}</h3>
+              <div key={index} className="nature-card rounded-xl p-6 hover:nature-glow transition-all duration-300">
+                <h3 className="text-xl font-bold text-white mb-4 text-tech">{skill.category}</h3>
                 <div className="flex flex-wrap gap-2">
                   {skill.items.map((item, itemIndex) => (
                     <span
                       key={itemIndex}
-                      className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium"
+                      className="px-3 py-1 bg-nature-green-500/20 text-nature-green-400 border border-nature-green-500/40 rounded-full text-sm font-medium hover:bg-nature-green-500/30 hover:border-nature-green-400 transition-all duration-300"
                     >
                       {item}
                     </span>
