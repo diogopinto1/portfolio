@@ -1,25 +1,24 @@
-import React from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
-import { HomePage, ProfilePage, CVPage, PortfolioPage, ContactPage } from "./pages/Pages";
-import "./index.css";
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Layout from './components/Layout'
+import Home from './pages/Home'
+import About from './pages/About'
+import Projects from './pages/Projects'
+import Contact from './pages/Contact'
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/cv" element={<CVPage />} />
-            <Route path="/portfolio" element={<PortfolioPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-          </Routes>
-        </Layout>
-      </Router>
-    </div>
-  );
+    <Router basename="/portfolio">
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Layout>
+    </Router>
+  )
 }
 
-export default App;
+export default App
