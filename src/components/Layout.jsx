@@ -19,17 +19,17 @@ const Layout = ({ children }) => {
       {/* Header */}
       <header className="sticky top-4 z-50 mx-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="flex items-center justify-between rounded-xl bg-tech-card px-6 py-4 green-border-glow">
+            <div className="flex items-center justify-between rounded-xl nature-card px-6 py-4 nature-glow">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-green-500 to-green-400 flex items-center justify-center text-black font-bold text-lg tech-glow">
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-nature-green-500 to-nature-green-400 flex items-center justify-center text-white font-bold text-lg tech-glow">
                 DP
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold text-white">
                   Diogo Pinto
                 </span>
-                <span className="text-xs text-tech text-green-400">
+                <span className="text-xs text-tech text-nature-green-400">
                   Data Scientist with a green-science edge
                 </span>
               </div>
@@ -41,9 +41,9 @@ const Layout = ({ children }) => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`text-sm font-medium transition-colors hover:text-green-400 ${
+                  className={`text-sm font-medium transition-colors hover:text-nature-green-400 ${
                     location.pathname === item.href
-                      ? 'text-green-400'
+                      ? 'text-nature-green-400'
                       : 'text-gray-300 hover:text-white'
                   }`}
                 >
@@ -57,14 +57,14 @@ const Layout = ({ children }) => {
               <a
                 href="/portfolio/resume.pdf"
                 download
-                className="flex items-center px-4 py-2 bg-tech-surface text-gray-300 hover:text-white transition-colors rounded-lg border border-gray-700 hover:border-green-400"
+                className="flex items-center px-4 py-2 bg-tech-surface text-gray-300 hover:text-white transition-colors rounded-lg border border-gray-700 hover:border-nature-green-400"
               >
                 <Download size={16} className="mr-2" />
                 Download CV
               </a>
               <a
                 href="/contact"
-                className="flex items-center px-6 py-2 bg-green-500 text-black font-semibold rounded-lg hover:bg-green-400 transition-colors"
+                className="flex items-center px-6 py-2 bg-nature-green-500 text-white font-semibold rounded-lg hover:bg-nature-green-600 transition-colors"
               >
                 Hire me
               </a>
@@ -72,7 +72,7 @@ const Layout = ({ children }) => {
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden p-2 text-gray-300 hover:text-green-400 transition-colors"
+              className="md:hidden p-2 text-gray-300 hover:text-nature-green-400 transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -81,15 +81,15 @@ const Layout = ({ children }) => {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="md:hidden mt-4 rounded-xl bg-tech-card green-border p-4">
+            <div className="md:hidden mt-4 rounded-xl nature-card p-4">
               <nav className="flex flex-col space-y-4">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`text-sm font-medium transition-colors hover:text-green-400 ${
+                    className={`text-sm font-medium transition-colors hover:text-nature-green-400 ${
                       location.pathname === item.href
-                        ? 'text-green-400'
+                        ? 'text-nature-green-400'
                         : 'text-gray-300 hover:text-white'
                     }`}
                     onClick={() => setIsMenuOpen(false)}
@@ -102,7 +102,7 @@ const Layout = ({ children }) => {
                     href="https://github.com/diogopinto1"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 text-gray-300 hover:text-green-400 transition-colors"
+                    className="p-2 text-gray-300 hover:text-nature-green-400 transition-colors"
                   >
                     <Github size={20} />
                   </a>
@@ -110,13 +110,13 @@ const Layout = ({ children }) => {
                     href="https://linkedin.com/in/diogopinto"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 text-gray-300 hover:text-green-400 transition-colors"
+                    className="p-2 text-gray-300 hover:text-nature-green-400 transition-colors"
                   >
                     <Linkedin size={20} />
                   </a>
                   <a
                     href="mailto:diogo.praia10@gmail.com"
-                    className="p-2 text-gray-300 hover:text-green-400 transition-colors"
+                    className="p-2 text-gray-300 hover:text-nature-green-400 transition-colors"
                   >
                     <Mail size={20} />
                   </a>
