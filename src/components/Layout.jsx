@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Profile', href: '/about' },
-    { name: 'CV', href: '/about' },
+    { name: 'CV', href: '/cv' },
     { name: 'Portfolio', href: '/projects' },
     { name: 'Contact', href: '/contact' },
   ]
