@@ -342,3 +342,47 @@ a {
     transform: translateX(10px) translateY(-5px);
   }
 }
+
+/* Scroll Aura Effects */
+@keyframes auraPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.6;
+  }
+}
+
+@keyframes particleFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+/* Scroll aura classes */
+.scroll-aura {
+  background: linear-gradient(
+    to top,
+    rgba(74, 222, 128, 0.1) 0%,
+    rgba(34, 197, 94, 0.05) 30%,
+    rgba(16, 185, 129, 0.02) 60%,
+    transparent 100%
+  );
+}
+
+.aura-glow {
+  background: radial-gradient(
+    ellipse at center bottom,
+    rgba(74, 222, 128, 0.15) 0%,
+    rgba(34, 197, 94, 0.08) 40%,
+    transparent 70%
+  );
+  animation: auraPulse 3s ease-in-out infinite;
+}

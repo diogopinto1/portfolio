@@ -4,6 +4,7 @@ import { Menu, X, Github, Linkedin, Mail, Download } from 'lucide-react'
 import NatureEffects from './NatureEffects'
 import FloatingElements from './FloatingElements'
 import LightEffects from './LightEffects'
+import ScrollAura from './ScrollAura'
 
 const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -23,6 +24,7 @@ const Layout = ({ children }) => {
       <LightEffects />
       <FloatingElements />
       <NatureEffects />
+      <ScrollAura />
       
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 px-4 py-4">
