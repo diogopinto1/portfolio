@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Github, Linkedin, Mail } from 'lucide-react'
+import { Menu, X, Github, Linkedin, Mail, Download } from 'lucide-react'
 
 const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -8,25 +8,31 @@ const Layout = ({ children }) => {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Projects', href: '/projects' },
+    { name: 'Profile', href: '/about' },
+    { name: 'CV', href: '/about' },
+    { name: 'Portfolio', href: '/projects' },
     { name: 'Contact', href: '/contact' },
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
+    <div className="min-h-screen" style={{ background: 'var(--dark-bg)' }}>
       {/* Header */}
       <header className="sticky top-4 z-50 mx-4">
         <div className="container mx-auto max-w-6xl">
-          <div className="flex items-center justify-between rounded-xl bg-white/80 backdrop-blur-md border border-slate-200/50 shadow-lg px-6 py-4">
+          <div className="flex items-center justify-between rounded-xl bg-tech-card px-6 py-4 green-border-glow">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg">
+            <Link to="/" className="flex items-center space-x-3">
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-green-500 to-green-400 flex items-center justify-center text-black font-bold text-lg tech-glow">
                 DP
               </div>
-              <span className="text-xl font-bold text-slate-800 dark:text-white">
-                Diogo Pinto
-              </span>
+              <div className="flex flex-col">
+                <span className="text-lg font-bold text-white">
+                  Diogo Pinto
+                </span>
+                <span className="text-xs text-tech text-green-400">
+                  Data Scientist with a green-science edge
+                </span>
+              </div>
             </Link>
 
             {/* Desktop Navigation */}
@@ -35,10 +41,10 @@ const Layout = ({ children }) => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`text-sm font-medium transition-colors hover:text-blue-600 ${
+                  className={`text-sm font-medium transition-colors hover:text-green-400 ${
                     location.pathname === item.href
-                      ? 'text-blue-600'
-                      : 'text-slate-600 dark:text-slate-300'
+                      ? 'text-green-400'
+                      : 'text-gray-300 hover:text-white'
                   }`}
                 >
                   {item.name}
@@ -46,35 +52,27 @@ const Layout = ({ children }) => {
               ))}
             </nav>
 
-            {/* Social Links */}
+            {/* Action Buttons */}
             <div className="hidden md:flex items-center space-x-4">
               <a
-                href="https://github.com/diogopinto1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 text-slate-600 hover:text-blue-600 transition-colors"
+                href="/portfolio/resume.pdf"
+                download
+                className="flex items-center px-4 py-2 bg-tech-surface text-gray-300 hover:text-white transition-colors rounded-lg border border-gray-700 hover:border-green-400"
               >
-                <Github size={20} />
+                <Download size={16} className="mr-2" />
+                Download CV
               </a>
               <a
-                href="https://linkedin.com/in/diogopinto"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 text-slate-600 hover:text-blue-600 transition-colors"
+                href="/contact"
+                className="flex items-center px-6 py-2 bg-green-500 text-black font-semibold rounded-lg hover:bg-green-400 transition-colors"
               >
-                <Linkedin size={20} />
-              </a>
-              <a
-                href="mailto:diogo.praia10@gmail.com"
-                className="p-2 text-slate-600 hover:text-blue-600 transition-colors"
-              >
-                <Mail size={20} />
+                Hire me
               </a>
             </div>
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden p-2 text-slate-600 hover:text-blue-600 transition-colors"
+              className="md:hidden p-2 text-gray-300 hover:text-green-400 transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -83,28 +81,28 @@ const Layout = ({ children }) => {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className="md:hidden mt-4 rounded-xl bg-white/80 backdrop-blur-md border border-slate-200/50 shadow-lg p-4">
+            <div className="md:hidden mt-4 rounded-xl bg-tech-card green-border p-4">
               <nav className="flex flex-col space-y-4">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`text-sm font-medium transition-colors hover:text-blue-600 ${
+                    className={`text-sm font-medium transition-colors hover:text-green-400 ${
                       location.pathname === item.href
-                        ? 'text-blue-600'
-                        : 'text-slate-600 dark:text-slate-300'
+                        ? 'text-green-400'
+                        : 'text-gray-300 hover:text-white'
                     }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
                   </Link>
                 ))}
-                <div className="flex items-center space-x-4 pt-4 border-t border-slate-200">
+                <div className="flex items-center space-x-4 pt-4 border-t border-gray-700">
                   <a
                     href="https://github.com/diogopinto1"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 text-slate-600 hover:text-blue-600 transition-colors"
+                    className="p-2 text-gray-300 hover:text-green-400 transition-colors"
                   >
                     <Github size={20} />
                   </a>
@@ -112,13 +110,13 @@ const Layout = ({ children }) => {
                     href="https://linkedin.com/in/diogopinto"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 text-slate-600 hover:text-blue-600 transition-colors"
+                    className="p-2 text-gray-300 hover:text-green-400 transition-colors"
                   >
                     <Linkedin size={20} />
                   </a>
                   <a
                     href="mailto:diogo.praia10@gmail.com"
-                    className="p-2 text-slate-600 hover:text-blue-600 transition-colors"
+                    className="p-2 text-gray-300 hover:text-green-400 transition-colors"
                   >
                     <Mail size={20} />
                   </a>
@@ -135,10 +133,10 @@ const Layout = ({ children }) => {
       </main>
 
       {/* Footer */}
-      <footer className="mt-16 border-t border-slate-200 dark:border-slate-700">
+      <footer className="mt-16 border-t border-gray-800">
         <div className="container mx-auto max-w-6xl px-4 py-8">
-          <div className="text-center text-slate-600 dark:text-slate-400">
-            <p>&copy; 2024 Diogo Pinto. All rights reserved.</p>
+          <div className="text-center text-gray-400">
+            <p className="text-tech">&copy; 2024 Diogo Pinto. All rights reserved.</p>
           </div>
         </div>
       </footer>
