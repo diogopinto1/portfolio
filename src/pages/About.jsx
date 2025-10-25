@@ -56,86 +56,74 @@ const About = () => {
             
             {/* Profile Image - Desktop Only */}
             <div className="hidden lg:block flex-shrink-0 mt-8 lg:mt-0 relative">
-              {/* Holographic glow effect */}
-              <div className="absolute inset-0 w-80 h-80 rounded-2xl opacity-60"
-                style={{
-                  background: `
-                    radial-gradient(ellipse at center, 
-                      rgba(74, 222, 128, 0.3) 0%, 
-                      rgba(34, 197, 94, 0.2) 30%, 
-                      rgba(16, 185, 129, 0.1) 60%, 
-                      transparent 100%
-                    )
-                  `,
-                  filter: 'blur(20px)',
-                  transform: 'scale(1.1)',
-                  zIndex: 1
-                }}
-              />
-              
-              {/* Secondary glow layer */}
-              <div className="absolute inset-0 w-80 h-80 rounded-2xl opacity-40"
-                style={{
-                  background: `
-                    radial-gradient(ellipse at center, 
-                      rgba(74, 222, 128, 0.4) 0%, 
-                      rgba(34, 197, 94, 0.2) 50%, 
-                      transparent 80%
-                    )
-                  `,
-                  filter: 'blur(15px)',
-                  transform: 'scale(1.05)',
-                  zIndex: 2
-                }}
-              />
-              
-              {/* Main image with holographic effects */}
-              <div className="relative z-10"
-                style={{
-                  filter: 'drop-shadow(0 0 20px rgba(74, 222, 128, 0.5)) drop-shadow(0 0 40px rgba(34, 197, 94, 0.3))',
-                  transform: 'translateY(-5px)',
-                }}
-              >
-                <img
-                  src="/portfolio/emoji55.png"
-                  alt="Diogo Pinto - Data Scientist"
-                  className="w-80 h-80 object-cover rounded-2xl relative"
+              {/* Contour-based aura effect */}
+              <div className="relative">
+                {/* Multiple contour glow layers */}
+                <div 
+                  className="absolute inset-0 w-80 h-80"
                   style={{
-                    filter: 'brightness(1.1) contrast(1.05) saturate(1.1)',
-                    boxShadow: '0 0 30px rgba(74, 222, 128, 0.4), inset 0 0 20px rgba(255, 255, 255, 0.1)'
+                    background: 'url(/portfolio/emoji55.png)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    filter: 'blur(8px) brightness(0) drop-shadow(0 0 15px rgba(74, 222, 128, 0.8))',
+                    transform: 'scale(1.02)',
+                    zIndex: 1,
+                    mixBlendMode: 'screen'
                   }}
                 />
                 
-                {/* Holographic scan lines */}
-                <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none"
+                <div 
+                  className="absolute inset-0 w-80 h-80"
                   style={{
-                    background: `
-                      linear-gradient(90deg, 
-                        transparent 0%, 
-                        rgba(74, 222, 128, 0.1) 50%, 
-                        transparent 100%
-                      )
-                    `,
-                    animation: 'hologramScan 3s ease-in-out infinite',
-                    zIndex: 1
+                    background: 'url(/portfolio/emoji55.png)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    filter: 'blur(12px) brightness(0) drop-shadow(0 0 25px rgba(34, 197, 94, 0.6))',
+                    transform: 'scale(1.04)',
+                    zIndex: 2,
+                    mixBlendMode: 'screen'
                   }}
                 />
                 
-                {/* Floating particles around the image */}
-                <div className="absolute inset-0 pointer-events-none">
-                  {[...Array(12)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-1 h-1 bg-nature-green-400 rounded-full opacity-60"
-                      style={{
-                        left: `${Math.random() * 100}%`,
-                        top: `${Math.random() * 100}%`,
-                        animation: `particleFloat ${2 + Math.random() * 3}s ease-in-out infinite`,
-                        animationDelay: `${Math.random() * 2}s`,
-                        boxShadow: '0 0 6px rgba(74, 222, 128, 0.8)'
-                      }}
-                    />
-                  ))}
+                <div 
+                  className="absolute inset-0 w-80 h-80"
+                  style={{
+                    background: 'url(/portfolio/emoji55.png)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    filter: 'blur(16px) brightness(0) drop-shadow(0 0 35px rgba(16, 185, 129, 0.4))',
+                    transform: 'scale(1.06)',
+                    zIndex: 3,
+                    mixBlendMode: 'screen'
+                  }}
+                />
+                
+                {/* Main image with enhanced contour glow */}
+                <div className="relative z-10">
+                  <img
+                    src="/portfolio/emoji55.png"
+                    alt="Diogo Pinto - Data Scientist"
+                    className="w-80 h-80 object-cover relative"
+                    style={{
+                      filter: 'drop-shadow(0 0 20px rgba(74, 222, 128, 0.6)) drop-shadow(0 0 40px rgba(34, 197, 94, 0.4)) drop-shadow(0 0 60px rgba(16, 185, 129, 0.2))',
+                      transform: 'translateY(-3px)',
+                      borderRadius: '0' // Remove rounded corners to follow natural shape
+                    }}
+                  />
+                  
+                  {/* Subtle inner glow */}
+                  <div 
+                    className="absolute inset-0 w-80 h-80 pointer-events-none"
+                    style={{
+                      background: 'url(/portfolio/emoji55.png)',
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center',
+                      filter: 'blur(2px) brightness(1.2) saturate(1.1)',
+                      mixBlendMode: 'overlay',
+                      opacity: 0.3,
+                      zIndex: 1
+                    }}
+                  />
                 </div>
               </div>
             </div>
