@@ -33,22 +33,38 @@ const About = () => {
   return (
     <div className="space-y-16">
       {/* About Me Section */}
-      <section className="text-center py-16">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 text-tech">
+      <section className="py-16">
+        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 text-tech text-center">
           About Me
         </h1>
-        <div className="max-w-4xl mx-auto">
-          <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-            I'm a passionate Data Scientist with a unique background in agricultural engineering, 
-            combining over 4 years of experience in machine learning with deep domain knowledge in 
-            sustainable agriculture and environmental science. My journey began with a fascination 
-            for how data can solve real-world environmental challenges.
-          </p>
-          <p className="text-lg text-gray-300 leading-relaxed">
-            When I'm not coding or analyzing agricultural data, you'll find me exploring new 
-            remote sensing technologies, contributing to open-source AgriTech projects, or 
-            sharing knowledge about sustainable farming practices through technical writing.
-          </p>
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12">
+            {/* Text Content */}
+            <div className="flex-1 text-center lg:text-left">
+              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+                I'm a passionate Data Scientist with a unique background in agricultural engineering, 
+                combining over 4 years of experience in machine learning with deep domain knowledge in 
+                sustainable agriculture and environmental science. My journey began with a fascination 
+                for how data can solve real-world environmental challenges.
+              </p>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                When I'm not coding or analyzing agricultural data, you'll find me exploring new 
+                remote sensing technologies, contributing to open-source AgriTech projects, or 
+                sharing knowledge about sustainable farming practices through technical writing.
+              </p>
+            </div>
+            
+            {/* Profile Image - Desktop Only */}
+            <div className="hidden lg:block flex-shrink-0 mt-8 lg:mt-0">
+              <div className="w-80 h-80 rounded-2xl overflow-hidden nature-glow">
+                <img
+                  src="/portfolio/emoji555.png"
+                  alt="Diogo Pinto - Data Scientist"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
