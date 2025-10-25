@@ -389,3 +389,47 @@ a {
   );
   animation: auraPulse 3s ease-in-out infinite;
 }
+
+/* Scroll Indicator Styles */
+.scroll-mouse {
+  animation: mouseFloat 3s ease-in-out infinite;
+}
+
+@keyframes mouseFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.scroll-wheel-bounce {
+  animation: wheelBounce 2s ease-in-out infinite;
+}
+
+@keyframes wheelBounce {
+  0%, 100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-3px);
+    opacity: 0.7;
+  }
+}
+
+.scroll-arrows {
+  animation: arrowsBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes arrowsBounce {
+  0%, 100% {
+    transform: translateY(0px);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-2px);
+    opacity: 1;
+  }
+}
