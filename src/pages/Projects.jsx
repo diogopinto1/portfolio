@@ -7,61 +7,72 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'Predictive Analytics Dashboard',
-      description: 'A comprehensive dashboard for real-time business analytics with machine learning predictions and interactive visualizations.',
-      image: '/portfolio/emoji3.png',
-      technologies: ['React', 'Python', 'TensorFlow', 'D3.js', 'PostgreSQL'],
+      title: 'SummerBerry Productivity Model',
+      description: 'Harvest forecasting model using Random Forest ML developed during a hackathon with SummerBerry, a Portuguese berry company. Predicts harvest week for productivity optimization.',
+      image: '/portfolio/sb.png',
+      technologies: ['Python', 'Random Forest', 'Machine Learning', 'React', 'Web Dashboard'],
       category: 'data-science',
-      liveUrl: 'https://example.com',
+      liveUrl: 'https://diogopinto1.com/demo/summerberry/',
       githubUrl: 'https://github.com/diogopinto1',
       featured: true
     },
     {
       id: 2,
-      title: 'E-commerce Platform',
-      description: 'Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.',
-      image: '/portfolio/emoji3.png',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe', 'AWS'],
+      title: 'Restaurante Adraga Website',
+      description: 'Dynamic restaurant website with online reservation system built with HTML, CSS, and JavaScript. Modern, responsive design with interactive features.',
+      image: '/portfolio/adr.png',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'Dynamic Content', 'Responsive Design'],
       category: 'web-development',
-      liveUrl: 'https://example.com',
+      liveUrl: 'https://restaurantedaadraga.com/',
       githubUrl: 'https://github.com/diogopinto1',
       featured: true
     },
     {
       id: 3,
-      title: 'NLP Sentiment Analysis',
-      description: 'Natural language processing model for sentiment analysis of social media data with real-time processing capabilities.',
-      image: '/portfolio/emoji3.png',
-      technologies: ['Python', 'NLTK', 'Scikit-learn', 'Flask', 'Docker'],
-      category: 'data-science',
-      liveUrl: 'https://example.com',
+      title: 'Restaurante Neptuno Website',
+      description: 'Modern restaurant website for a seafood restaurant in Praia das Maçãs, Sintra. Built with HTML, CSS, and JavaScript. Showcases menu, location, and restaurant history.',
+      image: '/portfolio/nep.png',
+      technologies: ['HTML', 'CSS', 'JavaScript', 'Responsive Design', 'Modern UI'],
+      category: 'web-development',
+      liveUrl: 'https://restauranteneptuno.pt/',
       githubUrl: 'https://github.com/diogopinto1',
-      featured: false
+      featured: true
     },
     {
       id: 4,
-      title: 'Task Management App',
-      description: 'Collaborative task management application with real-time updates, team collaboration, and project tracking.',
-      image: '/portfolio/emoji3.png',
-      technologies: ['React', 'TypeScript', 'Socket.io', 'Express', 'MongoDB'],
-      category: 'web-development',
-      liveUrl: 'https://example.com',
+      title: 'Agricultural Land Use Analysis',
+      description: 'Analysis and visualization of Portugal\'s agro-environmental data examining crop area ratios, labor force relationships, and regional agricultural development over time.',
+      image: '/portfolio/fil.png',
+      technologies: ['Python', 'SQL', 'Data Visualization', 'EDA', 'Geospatial Analysis'],
+      category: 'data-science',
+      liveUrl: 'https://drive.google.com/file/d/1o-PyzwwfFiiMOHsEYdL-Vc0nOqTXlnxb/view',
       githubUrl: 'https://github.com/diogopinto1',
       featured: false
     },
     {
       id: 5,
-      title: 'Computer Vision Model',
-      description: 'Deep learning model for object detection and classification with custom dataset training and deployment.',
-      image: '/portfolio/emoji3.png',
-      technologies: ['Python', 'PyTorch', 'OpenCV', 'FastAPI', 'Docker'],
-      category: 'ai-ml',
-      liveUrl: 'https://example.com',
+      title: 'Avocado Price & Trade Analysis',
+      description: 'Power BI dashboard analyzing avocado prices, imports and exports between Portugal and Spain. Data collected via web scraping, processed in Power Query, and visualized dynamically.',
+      image: '/portfolio/pb.png',
+      technologies: ['Power BI', 'Web Scraping', 'Power Query', 'Data Visualization', 'Excel'],
+      category: 'data-science',
+      liveUrl: 'https://app.powerbi.com/view?r=eyJrIjoiNDA1YWE0OGItMzQyMi00ZDcyLThhMjUtODkwNDE4MWIzOTBiIiwidCI6IjBiZmE4NTAwLWIxZjItNDU2Ni1iYWYxLTZmNTkzNzA4OTNlNyIsImMiOjh9',
       githubUrl: 'https://github.com/diogopinto1',
       featured: false
     },
     {
       id: 6,
+      title: 'Irrigation Decision Support Tool',
+      description: 'Decision support tool for irrigation needs using weather and soil data from open-meteo.com API. Calculates soil tension (pF) and provides actionable irrigation recommendations.',
+      image: '/portfolio/tf.png',
+      technologies: ['Python', 'API Integration', 'Weather Data', 'Soil Analysis', 'Decision Support'],
+      category: 'data-science',
+      liveUrl: 'https://drive.google.com/file/d/1ZpPdTHfuRJ3947CW3TAcMSUubQ3y6b68/view',
+      githubUrl: 'https://github.com/diogopinto1',
+      featured: false
+    },
+    {
+      id: 7,
       title: 'Portfolio Website',
       description: 'Personal portfolio website built with modern web technologies and responsive design.',
       image: '/portfolio/emoji3.png',
@@ -114,66 +125,6 @@ const Projects = () => {
         ))}
       </section>
 
-      {/* Featured Projects */}
-      {filter === 'all' && (
-        <section>
-          <h2 className="text-2xl font-bold text-white mb-8 text-tech">
-            Featured Projects
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.filter(project => project.featured).map((project) => (
-              <div key={project.id} className="nature-card rounded-xl overflow-hidden hover:nature-glow transition-all duration-300">
-                <div className="h-48 bg-gradient-to-r from-nature-green-500 to-nature-green-600 flex items-center justify-center">
-                  <img 
-                    src={project.image} 
-                    alt={project.title}
-                    className="w-16 h-16 rounded-full object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-white mb-2 text-tech">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-300 mb-4">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-nature-green-500/20 text-nature-green-400 border border-nature-green-500/40 rounded-full text-sm"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex gap-4">
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-nature-green-400 hover:text-nature-green-300 transition-colors"
-                    >
-                      <Eye size={16} className="mr-1" />
-                      Live Demo
-                    </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center text-gray-300 hover:text-white transition-colors"
-                    >
-                      <Github size={16} className="mr-1" />
-                      Code
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
       {/* All Projects Grid */}
       <section>
         {filter !== 'all' && (
@@ -183,15 +134,16 @@ const Projects = () => {
         )}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
-            <div key={project.id} className="nature-card rounded-xl overflow-hidden hover:nature-glow transition-all duration-300">
-              <div className="h-40 bg-gradient-to-r from-nature-green-500 to-nature-green-600 flex items-center justify-center">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-12 h-12 rounded-full object-cover"
-                />
+            <div key={project.id} className="nature-card rounded-xl overflow-hidden hover:nature-glow transition-all duration-300 flex flex-col">
+              <div 
+                className="h-40 bg-cover bg-center bg-no-repeat relative"
+                style={{
+                  backgroundImage: `url(${project.image})`
+                }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/80"></div>
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-lg font-semibold text-white mb-2 text-tech">
                   {project.title}
                 </h3>
@@ -199,7 +151,7 @@ const Projects = () => {
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-1 mb-4">
-                  {project.technologies.slice(0, 3).map((tech, index) => (
+                  {project.technologies.map((tech, index) => (
                     <span
                       key={index}
                       className="px-2 py-1 bg-nature-green-500/20 text-nature-green-400 border border-nature-green-500/40 rounded text-xs"
@@ -207,13 +159,8 @@ const Projects = () => {
                       {tech}
                     </span>
                   ))}
-                  {project.technologies.length > 3 && (
-                    <span className="px-2 py-1 bg-gray-700 text-gray-300 rounded text-xs">
-                      +{project.technologies.length - 3}
-                    </span>
-                  )}
                 </div>
-                <div className="flex gap-4">
+                <div className="flex gap-4 mt-auto">
                   <a
                     href={project.liveUrl}
                     target="_blank"
