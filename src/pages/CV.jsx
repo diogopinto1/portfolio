@@ -194,17 +194,26 @@ const CV = () => {
           {/* Timeline Container */}
           <div className="relative">
             {/* Vertical Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-nature-green-500 to-nature-green-600"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-[2px] h-full bg-gradient-to-b from-nature-green-500 to-nature-green-600 pointer-events-none"></div>
             
             {/* Experience Cards */}
             <div className="space-y-12">
               {experiences.map((exp, index) => (
-                <div key={index} className={`relative flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                <div
+                  key={index}
+                  className={`relative flex flex-col md:items-center gap-8 md:gap-0 ${
+                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                  }`}
+                >
                   {/* Timeline Dot */}
-                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-nature-green-500 rounded-full border-4 border-gray-800 z-10 nature-glow"></div>
+                  <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-nature-green-500 rounded-full border-4 border-gray-800 z-10 nature-glow"></div>
                   
                   {/* Experience Card */}
-                  <div className={`w-5/12 ${index % 2 === 0 ? 'pr-8' : 'pl-8'}`}>
+                  <div
+                    className={`w-full md:w-5/12 mx-auto ${
+                      index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
+                    }`}
+                  >
                     <div 
                       className="nature-card rounded-xl p-6 hover:nature-glow transition-all duration-300 cursor-pointer"
                       onClick={() => toggleCard(index)}
