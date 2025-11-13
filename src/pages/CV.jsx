@@ -201,16 +201,14 @@ const CV = () => {
               {experiences.map((exp, index) => (
                 <div
                   key={index}
-                  className={`relative flex flex-col md:items-center gap-8 md:gap-0 ${
-                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                  }`}
+                  className={`relative flex flex-col md:flex-row md:items-center gap-8 md:gap-0 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
                 >
                   {/* Timeline Dot */}
-                  <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-nature-green-500 rounded-full border-4 border-gray-800 z-10 nature-glow"></div>
+                  <div className="absolute left-1/2 top-6 md:top-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-4 h-4 bg-nature-green-500 rounded-full border-4 border-gray-800 z-10 nature-glow"></div>
                   
                   {/* Experience Card */}
                   <div
-                    className={`w-full md:w-5/12 mx-auto ${
+                    className={`w-full md:w-5/12 mx-auto md:mx-0 mt-12 md:mt-0 ${
                       index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
                     }`}
                   >
