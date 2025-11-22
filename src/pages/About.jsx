@@ -1,32 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Code, Database, Brain, Globe, Award, Users, Leaf, Zap } from 'lucide-react'
 
 const About = () => {
+  const [isFlipped, setIsFlipped] = useState(false)
+
+  const handleImageClick = () => {
+    setIsFlipped(!isFlipped)
+  }
   const skills = [
-    { category: 'Programming', items: ['Python', 'JavaScript', 'R', 'SQL', 'TypeScript'] },
-    { category: 'Data Science', items: ['Pandas', 'NumPy', 'Scikit-learn', 'TensorFlow', 'PyTorch'] },
-    { category: 'AgriTech', items: ['Remote Sensing', 'GIS', 'Precision Agriculture', 'IoT', 'Satellite Data'] },
-    { category: 'Tools & Platforms', items: ['Git', 'Docker', 'AWS', 'Jupyter', 'MLflow'] }
+    { category: 'Programming', items: ['Python', 'JavaScript', 'R', 'SQL', 'TypeScript', 'Java', 'C', 'C++'] },
+    { category: 'Data Science', items: ['Pandas', 'NumPy', 'Scikit-learn', 'TensorFlow', 'Keras', 'Matplotlib', 'Seaborn', 'Plotly'] },
+    { category: 'AgriTech & GIS', items: ['Remote Sensing', 'GIS (ArcGIS, QGIS)', 'Precision Agriculture', 'IoT Sensors', 'SIG (NDVI/SAVI)'] },
+    { category: 'Tools & Platforms', items: ['Git', 'Docker', 'AWS', 'Azure', 'PostgreSQL', 'MySQL', 'Power BI', 'React'] }
   ]
 
   const experiences = [
     {
-      title: 'Senior Data Scientist',
-      company: 'AgriTech Solutions',
-      period: '2022 - Present',
-      description: 'Developed machine learning models for crop yield prediction and precision agriculture using satellite imagery and IoT sensor data.'
+      title: 'Data Scientist - Research Grant',
+      company: 'Horizon Europe - INESC TEC',
+      period: '01/2025 – Present',
+      description: 'Horizon-AI Project: Groundwater level forecasting and water pollution mitigation in the Mediterranean. Creating data mining pipelines and predictive time series modeling with ML models (Random Forest, LSTM, ARIMAX).'
     },
     {
-      title: 'Full-Stack Developer',
-      company: 'GreenTech Startup',
-      period: '2021 - 2022',
-      description: 'Built scalable web applications for environmental monitoring and sustainable agriculture management systems.'
+      title: 'Data Scientist - Master\'s Thesis',
+      company: 'HIDROSOPH',
+      period: '12/2023 – 11/2024',
+      description: 'Development of a Machine Learning pipeline (CRISP-DM methodology) for correcting inconsistencies in IoT sensor data, ensuring data continuity and quality for internal company algorithms.'
     },
     {
-      title: 'Data Analyst',
-      company: 'Environmental Research Institute',
-      period: '2020 - 2021',
-      description: 'Analyzed large environmental datasets to provide insights on climate change impacts and sustainable farming practices.'
+      title: 'Data Scientist/Data Engineer - Hackathon Project',
+      company: 'The Summer Berry',
+      period: '10/2023 – 12/2023',
+      description: 'Predictive model (Forecasting) for berry production productivity. Development of ML model (Random Forest) with temporal validation and interactive dashboard for prediction monitoring.'
     }
   ]
 
@@ -42,62 +47,76 @@ const About = () => {
             {/* Text Content */}
             <div className="flex-1 text-center lg:text-left">
               <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                I'm a passionate Data Scientist with a unique background in agricultural engineering, 
-                combining over 4 years of experience in machine learning with deep domain knowledge in 
-                sustainable agriculture and environmental science. My journey began with a fascination 
-                for how data can solve real-world environmental challenges.
+                I'm a Data Scientist with a unique background in agricultural engineering, combining 
+                experience in machine learning with deep domain knowledge in sustainable agriculture and 
+                environmental science. My journey follows a simple philosophy: <span className="text-nature-green-400 font-semibold">Curiosity → Data → AI → Impact</span>.
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
-                When I'm not coding or analyzing agricultural data, you'll find me exploring new 
-                remote sensing technologies, contributing to open-source AgriTech projects, or 
-                sharing knowledge about sustainable farming practices through technical writing.
+                Currently working at INESC TEC on the Horizon Europe project, developing predictive models 
+                for groundwater level forecasting and water pollution mitigation in the Mediterranean. 
+                I specialize in time series analysis, IoT sensor data processing, and building end-to-end 
+                ML pipelines with a focus on reproducibility and continuous monitoring.
               </p>
             </div>
             
             {/* Profile Image - Desktop Only */}
             <div className="hidden lg:block flex-shrink-0 mt-8 lg:mt-0 relative">
-              {/* Subtle contour-based aura effect */}
-              <div className="relative">
-                {/* Single subtle glow layer */}
-                <div 
-                  className="absolute inset-0 w-80 h-80"
+              <div 
+                className="relative w-80 h-80 cursor-pointer"
+                style={{
+                  perspective: '1000px'
+                }}
+                onClick={handleImageClick}
+              >
+                <div
+                  className="relative w-full h-full"
                   style={{
-                    background: 'url(/portfolio/emoji55.png)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    filter: 'blur(6px) brightness(0) drop-shadow(0 0 8px rgba(74, 222, 128, 0.3))',
-                    transform: 'scale(1.01)',
-                    zIndex: 1,
-                    mixBlendMode: 'screen'
+                    transformStyle: 'preserve-3d',
+                    transition: 'transform 0.6s',
+                    transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)'
                   }}
-                />
-                
-                {/* Main image with subtle contour glow */}
-                <div className="relative z-10">
-                  <img
-                    src="/portfolio/emoji55.png"
-                    alt="Diogo Pinto - Data Scientist"
-                    className="w-80 h-80 object-cover relative"
+                >
+                  {/* Front side - 4.png */}
+                  <div
+                    className="absolute w-full h-full"
                     style={{
-                      filter: 'drop-shadow(0 0 8px rgba(74, 222, 128, 0.2)) drop-shadow(0 0 16px rgba(34, 197, 94, 0.15))',
-                      transform: 'translateY(-2px)',
-                      borderRadius: '0' // Remove rounded corners to follow natural shape
+                      backfaceVisibility: 'hidden',
+                      WebkitBackfaceVisibility: 'hidden',
+                      transform: 'rotateY(0deg)'
                     }}
-                  />
+                  >
+                    <img
+                      src="/portfolio/4.png"
+                      alt="Diogo Pinto - Data Scientist"
+                      className="w-full h-full object-cover"
+                      style={{
+                        filter: 'drop-shadow(0 0 8px rgba(74, 222, 128, 0.2)) drop-shadow(0 0 16px rgba(34, 197, 94, 0.15))',
+                        transform: 'translateY(-2px)',
+                        borderRadius: '0'
+                      }}
+                    />
+                  </div>
                   
-                  {/* Very subtle inner glow */}
-                  <div 
-                    className="absolute inset-0 w-80 h-80 pointer-events-none"
+                  {/* Back side - emoji3.png */}
+                  <div
+                    className="absolute w-full h-full"
                     style={{
-                      background: 'url(/portfolio/emoji55.png)',
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center',
-                      filter: 'blur(1px) brightness(1.05) saturate(1.02)',
-                      mixBlendMode: 'overlay',
-                      opacity: 0.15,
-                      zIndex: 1
+                      backfaceVisibility: 'hidden',
+                      WebkitBackfaceVisibility: 'hidden',
+                      transform: 'rotateY(180deg)'
                     }}
-                  />
+                  >
+                    <img
+                      src="/portfolio/emoji3.png"
+                      alt="Diogo Pinto - Data Scientist"
+                      className="w-full h-full object-cover"
+                      style={{
+                        filter: 'drop-shadow(0 0 8px rgba(74, 222, 128, 0.2)) drop-shadow(0 0 16px rgba(34, 197, 94, 0.15))',
+                        transform: 'translateY(-2px)',
+                        borderRadius: '0'
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

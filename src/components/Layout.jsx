@@ -69,7 +69,7 @@ const Layout = ({ children }) => {
             {/* Action Buttons */}
             <div className="hidden md:flex items-center space-x-4">
               <a
-                href="/portfolio/resume.pdf"
+                href="/portfolio/diogopinto_cv.pdf"
                 download
                 className="flex items-center px-4 py-2 bg-tech-surface text-gray-300 hover:text-white transition-colors rounded-lg border border-gray-700 hover:border-nature-green-400"
               >
@@ -129,7 +129,7 @@ const Layout = ({ children }) => {
                     <Linkedin size={20} />
                   </a>
                   <a
-                    href="mailto:diogo.praia10@gmail.com"
+                    href="mailto:diogoeugeniopinto@gmail.com"
                     className="p-2 text-gray-300 hover:text-nature-green-400 transition-colors"
                   >
                     <Mail size={20} />

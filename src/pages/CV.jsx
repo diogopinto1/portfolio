@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Download, Mail, Linkedin, Github, Calendar, MapPin, Building, Award, BookOpen, Code, Database, Brain, ChevronDown, ChevronUp } from 'lucide-react'
+import { Download, Mail, Linkedin, Github, Calendar, MapPin, Building, Award, BookOpen, Code, Database, Brain, ChevronDown, ChevronUp, Globe } from 'lucide-react'
 
 const CV = () => {
   const [expandedCards, setExpandedCards] = useState({})
@@ -13,107 +13,134 @@ const CV = () => {
 
   const experiences = [
     {
-      title: "Senior Data Scientist",
-      company: "AgriTech Solutions",
+      title: "Data Scientist - Research Grant",
+      company: "Horizon Europe - INESC TEC",
       location: "Lisbon, Portugal",
-      period: "2022 - Present",
-      description: "Developed machine learning models for crop yield prediction and precision agriculture using satellite imagery and IoT sensor data.",
+      period: "01/2025 – Present",
+      description: "Horizon-AI Project: Groundwater level forecasting and water pollution mitigation in the Mediterranean.",
       details: [
-        "Led a team of 3 data scientists in developing ML models for crop yield prediction",
-        "Implemented computer vision algorithms for satellite image analysis achieving 94% accuracy",
-        "Built MLOps pipeline for model deployment and monitoring using AWS and Docker",
-        "Collaborated with agricultural experts to validate model predictions in real field conditions",
-        "Published 2 research papers on precision agriculture applications"
+        "Created data mining pipeline and predictive time series modeling",
+        "Structured relational database and integrated climate and hydrological data",
+        "Applied statistical methods (Spearman and Pearson, with time lags) to evaluate correlations",
+        "Developed Machine Learning models (Random Forest, LSTM, ARIMAX) for water level depth forecasting",
+        "Integrated and automated pipeline with focus on reproducibility and continuous data monitoring in final dashboard"
       ],
-      technologies: ["Python", "TensorFlow", "AWS", "Docker", "PostgreSQL", "Git"],
+      technologies: ["Python", "Pandas", "NumPy", "Scikit-learn", "TensorFlow (Keras)", "PostgreSQL", "Git", "Azure", "Docker", "React"],
       icon: <Database className="w-5 h-5" />
     },
     {
-      title: "Full-Stack Developer",
-      company: "GreenTech Startup",
-      location: "Remote",
-      period: "2021 - 2022",
-      description: "Built scalable web applications for environmental monitoring and sustainable agriculture management systems.",
+      title: "Data Scientist - Master's Thesis",
+      company: "HIDROSOPH",
+      location: "Lisbon, Portugal",
+      period: "12/2023 – 11/2024",
+      description: "Master's Thesis: Intelligent sensory data gap filling - Application of Machine Learning in Irrigation Systems.",
       details: [
-        "Developed full-stack web applications using React, Node.js, and PostgreSQL",
-        "Implemented real-time data visualization dashboards for IoT sensor data",
-        "Designed RESTful APIs for mobile and web applications",
-        "Integrated third-party services for weather data and satellite imagery",
-        "Optimized application performance resulting in 40% faster load times"
+        "Developed a Machine Learning pipeline, CRISP-DM methodology, for correcting inconsistencies in IoT sensor data",
+        "Ensured data continuity and quality, ensuring readiness for future use in internal company algorithms",
+        "Selected and implemented cloud computing services for model ingestion, processing and serving"
       ],
-      technologies: ["React", "Node.js", "PostgreSQL", "JavaScript", "Express", "MongoDB"],
+      technologies: ["IoT Sensors", "GIS (NDVI/SAVI)", "AWS", "s3", "Pandas", "NumPy", "Scikit-learn", "TensorFlow (Keras)", "MySQL", "Git", "Docker", "REST APIs"],
+      icon: <Brain className="w-5 h-5" />
+    },
+    {
+      title: "Data Scientist/Data Engineer - Hackathon Project",
+      company: "The Summer Berry",
+      location: "Odemira, Portugal",
+      period: "10/2023 – 12/2023",
+      description: "Hackathon Project: Predictive model (Forecasting) for berry production productivity.",
+      details: [
+        "Data Science workflow (ML-driven Automation) in a team of 5 people for raspberry productivity forecasting",
+        "Field data collection and preparation (standardization, cleaning and extraction of agronomic features)",
+        "Local database development with relational schema for harvest, climate and phenology history",
+        "Created Machine Learning model for productivity forecasting (Random Forest), with temporal validation and hyperparameter tuning",
+        "Implemented interactive dashboard (final application) for prediction monitoring and decision support"
+      ],
+      technologies: ["MariaDB (SQL)", "DBeaver", "OpenRefine", "Python", "Pandas", "NumPy", "Scikit-learn (RandomForest)", "Plotly", "Matplotlib"],
       icon: <Code className="w-5 h-5" />
     },
     {
-      title: "Data Analyst",
-      company: "Environmental Research Institute",
-      location: "Porto, Portugal",
-      period: "2020 - 2021",
-      description: "Analyzed large environmental datasets to provide insights on climate change impacts and sustainable farming practices.",
+      title: "Regulatory Assistant - Extracurricular Internship",
+      company: "Syngenta",
+      location: "Lisbon, Portugal",
+      period: "08/2023 – 09/2023",
+      description: "Regulation and Sustainability - Consulting in the Regulatory Department with focus on compliance and sustainable practices.",
       details: [
-        "Analyzed over 10TB of environmental data using Python and R",
-        "Created statistical models to predict climate change impacts on agriculture",
-        "Developed data visualization tools for research presentations",
-        "Collaborated with research teams on 5+ published studies",
-        "Presented findings at 3 international conferences"
+        "Information management and storage (organization, normalization and version control of technical and legal documentation)",
+        "Collaboration on Operation Pollinator project, supporting implementation, monitoring and reporting of biodiversity and sustainability initiatives"
       ],
-      technologies: ["Python", "R", "Pandas", "Matplotlib", "Jupyter", "SQL"],
-      icon: <Brain className="w-5 h-5" />
+      technologies: ["SharePoint", "Google Drive", "Office 365", "Excel"],
+      icon: <Database className="w-5 h-5" />
+    },
+    {
+      title: "Data Scientist - Extracurricular Internship",
+      company: "Águas do Tejo Atlântico - Grupo Águas de Portugal",
+      location: "Lisbon, Portugal",
+      period: "06/2023 – 08/2023",
+      description: "Aquasafe Project: Data analysis and treatment, and IDE development.",
+      details: [
+        "Information centralization (PostgreSQL relational database) with operational and historical schema",
+        "Water course monitoring based on different sensors (level, velocity, flow, volume) including data validation and quality control",
+        "Updated and developed interactive dashboard in Aquasafe, with weekly and monthly aggregations by location",
+        "Automated temporal ingestion and aggregation, documentation and versioning"
+      ],
+      technologies: ["Microsoft SQL", "Sensors/Telemetry", "Python", "Pandas", "Docker", "Power BI"],
+      icon: <Database className="w-5 h-5" />
+    },
+    {
+      title: "Data Scientist - Extracurricular Internship",
+      company: "CONSULAI",
+      location: "Lisbon, Portugal",
+      period: "06/2022 – 08/2022",
+      description: "R&D Department: Consulting/Digitalization in Agricultural, Food, Forestry, Sea and Rural Development sectors.",
+      details: [
+        "Research and web scraping from official sources (INE, GPP, EUROSTAT) with quality control and metadata cataloging",
+        "Data centralization and modeling in Excel, with Power Query and DAX (Power Pivot) for analytical model creation",
+        "Developed an API (INE-oriented script) to automate data extraction and updating",
+        "Market analysis of avocado prices in Portugal and Spain and created Power BI dashboard for monitoring and reporting"
+      ],
+      technologies: ["Python", "BeautifulSoup", "Scrapy", "REST APIs", "Excel", "Power Query", "Power Pivot", "DAX", "Office365", "SharePoint", "Power BI", "Git", "FastAPI", "Flask"],
+      icon: <Code className="w-5 h-5" />
     }
   ]
 
   const education = [
     {
-      degree: "MSc in Agricultural Engineering",
-      institution: "University of Lisbon",
+      degree: "Master's in Data Science in Agriculture, Food, Forest and Environment",
+      institution: "ULisboa - Instituto Superior de Agronomia",
       location: "Lisbon, Portugal",
-      year: "2019 - 2021",
-      description: "Specialization in Precision Agriculture and Remote Sensing"
+      year: "01/09/2022 – 30/11/2024",
+      description: "Final Grade: 18 | EQF Level: Level 7 | Thesis: Intelligent Sensory Data Gap Filling: Application of Machine Learning in Irrigation Systems"
     },
     {
-      degree: "BSc in Environmental Engineering",
-      institution: "University of Porto",
-      location: "Porto, Portugal",
-      year: "2015 - 2019",
-      description: "Focus on Sustainable Development and Environmental Science"
+      degree: "Bachelor's in Agronomic Engineering",
+      institution: "ULisboa - Instituto Superior de Agronomia",
+      location: "Lisbon, Portugal",
+      year: "01/09/2018 – 09/06/2022",
+      description: "Final Grade: 13 | EQF Level: Level 6"
     }
   ]
 
   const publications = [
     {
-      title: "Machine Learning Applications in Precision Agriculture",
-      journal: "Agricultural Technology Review",
-      year: "2023",
-      authors: "Pinto, D. et al.",
-      type: "Journal Article"
-    },
-    {
-      title: "Remote Sensing for Crop Monitoring",
-      journal: "IEEE Geoscience and Remote Sensing",
-      year: "2022",
-      authors: "Pinto, D. et al.",
-      type: "Conference Paper"
-    },
-    {
-      title: "Sustainable Farming with AI",
-      journal: "Nature Sustainability",
-      year: "2021",
-      authors: "Pinto, D. et al.",
-      type: "Journal Article"
+      title: "Intelligent Sensory Data Gap Filling: Application of Machine Learning in Irrigation Systems",
+      journal: "Master's Thesis - ULisboa ISA",
+      year: "2024",
+      authors: "Diogo Eugénio Pinto",
+      type: "Master's Thesis"
     }
   ]
 
   const skills = [
-    { category: "Programming", items: ["Python", "JavaScript", "R", "SQL", "TypeScript"] },
-    { category: "Data Science", items: ["Pandas", "NumPy", "Scikit-learn", "TensorFlow", "PyTorch"] },
-    { category: "AgriTech", items: ["Remote Sensing", "GIS", "Precision Agriculture", "IoT", "Satellite Data"] },
-    { category: "Tools & Platforms", items: ["Git", "Docker", "AWS", "Jupyter", "MLflow"] }
+    { category: "Programming", items: ["Python", "JavaScript", "R", "SQL", "TypeScript", "Java", "C", "C++", "HTML5", "CSS3", "Bootstrap", "React"] },
+    { category: "Data Science", items: ["Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Keras", "Matplotlib", "Seaborn", "Plotly", "Power BI", "Power Query", "DAX"] },
+    { category: "AgriTech & GIS", items: ["Remote Sensing", "GIS (ArcGIS, QGIS)", "Precision Agriculture", "IoT Sensors", "SIG (NDVI/SAVI)"] },
+    { category: "Tools & Platforms", items: ["Git", "Docker", "AWS", "Azure", "PostgreSQL", "MySQL", "MariaDB", "Microsoft SQL", "MLOps", "DevOps", "LangChain"] }
   ]
 
   const stats = [
-    { number: "8", label: "Publications" },
-    { number: "4+", label: "Years Experience" },
-    { number: "20+", label: "AI Projects" }
+    { number: "18", label: "Master's (Final Grade)" },
+    { number: "3+", label: "Years Experience" },
+    { number: "6+", label: "Professional Projects" }
   ]
 
   return (
@@ -128,8 +155,10 @@ const CV = () => {
             Data Scientist — AI Enthusiast
           </h2>
           <p className="text-lg text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <span className="text-nature-green-400 font-semibold">Curiosity → Data → AI → Impact</span><br/>
             Developing AI-driven agricultural solutions through machine learning and remote sensing 
-            for sustainable farming and environmental conservation.
+            for sustainable farming and environmental conservation. Currently working on groundwater 
+            forecasting and water pollution mitigation at INESC TEC.
           </p>
 
           {/* Stats */}
@@ -144,10 +173,14 @@ const CV = () => {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="inline-flex items-center px-8 py-4 bg-nature-green-500 text-white font-semibold rounded-lg hover:bg-nature-green-600 transition-all duration-300 nature-glow hover:scale-105">
+            <a
+              href="/portfolio/diogopinto_cv.pdf"
+              download
+              className="inline-flex items-center px-8 py-4 bg-nature-green-500 text-white font-semibold rounded-lg hover:bg-nature-green-600 transition-all duration-300 nature-glow hover:scale-105"
+            >
               <Download className="mr-2" size={20} />
               Download CV
-            </button>
+            </a>
             <a
               href="/contact"
               className="inline-flex items-center px-8 py-4 border border-nature-green-500 text-nature-green-400 rounded-lg hover:bg-nature-green-500/10 hover:border-nature-green-400 transition-all duration-300 font-medium"
@@ -159,22 +192,18 @@ const CV = () => {
           {/* Social Links */}
           <div className="flex justify-center gap-4 mt-8">
             <a
-              href="mailto:diogo.praia10@gmail.com"
+              href="mailto:diogoeugeniopinto@gmail.com"
               className="w-12 h-12 bg-nature-green-500/20 border border-nature-green-500/40 rounded-full flex items-center justify-center hover:bg-nature-green-500/30 hover:border-nature-green-400 transition-colors nature-glow"
             >
               <Mail className="w-5 h-5 text-nature-green-400" />
             </a>
             <a
-              href="https://linkedin.com/in/diogopinto"
+              href="http://www.diogopinto1.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-12 h-12 bg-nature-green-500/20 border border-nature-green-500/40 rounded-full flex items-center justify-center hover:bg-nature-green-500/30 hover:border-nature-green-400 transition-colors nature-glow"
             >
-              <Linkedin className="w-5 h-5 text-nature-green-400" />
-            </a>
-            <a
-              href="https://github.com/diogopinto1"
-              className="w-12 h-12 bg-nature-green-500/20 border border-nature-green-500/40 rounded-full flex items-center justify-center hover:bg-nature-green-500/30 hover:border-nature-green-400 transition-colors nature-glow"
-            >
-              <Github className="w-5 h-5 text-nature-green-400" />
+              <Globe className="w-5 h-5 text-nature-green-400" />
             </a>
           </div>
         </div>

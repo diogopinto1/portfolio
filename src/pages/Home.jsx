@@ -30,7 +30,8 @@ const Home = () => {
             </h1>
             <p className="text-lg text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
               I connect agronomy and machine learning to create sustainable solutions. 
-              Specializing in time series analysis, remote sensing, and MLOps for agricultural innovation.
+              Currently working on groundwater forecasting and water pollution mitigation at INESC TEC. 
+              Specializing in time series analysis, IoT sensor data processing, and building end-to-end ML pipelines.
             </p>
             
             {/* Skills Tags */}

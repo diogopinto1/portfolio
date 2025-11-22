@@ -58,10 +58,10 @@ const Contact = () => {
               <div>
                 <h3 className="font-semibold text-white text-tech">Email</h3>
                 <a 
-                  href="mailto:diogo.praia10@gmail.com"
+                  href="mailto:diogoeugeniopinto@gmail.com"
                   className="text-nature-green-400 hover:text-nature-green-300 transition-colors"
                 >
-                  diogo.praia10@gmail.com
+                  diogoeugeniopinto@gmail.com
                 </a>
               </div>
             </div>
@@ -73,10 +73,10 @@ const Contact = () => {
               <div>
                 <h3 className="font-semibold text-white text-tech">Phone</h3>
                 <a 
-                  href="tel:+351123456789"
+                  href="tel:+351926774879"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  +351 123 456 789
+                  (+351) 926 774 879
                 </a>
               </div>
             </div>
@@ -88,7 +88,7 @@ const Contact = () => {
               <div>
                 <h3 className="font-semibold text-white text-tech">Location</h3>
                 <p className="text-gray-300">
-                  Lisbon, Portugal
+                  Sintra, Portugal
                 </p>
               </div>
             </div>
