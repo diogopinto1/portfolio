@@ -18,9 +18,24 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    // You can integrate with a service like EmailJS or a backend API
+    
+    // Create mailto link with form data
+    const subject = encodeURIComponent(formData.subject)
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    )
+    const mailtoLink = `mailto:diogoeugeniopinto@gmail.com?subject=${subject}&body=${body}`
+    
+    // Open email client
+    window.location.href = mailtoLink
+    
+    // Reset form after opening email client
+    setFormData({
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    })
   }
 
   return (
@@ -109,7 +124,7 @@ const Contact = () => {
                 <Github className="text-nature-green-400" size={20} />
               </a>
               <a
-                href="https://linkedin.com/in/diogopinto"
+                href="https://www.linkedin.com/in/diogo-pinto-36a460210/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-nature-green-500/20 border border-nature-green-500/40 rounded-full flex items-center justify-center hover:bg-nature-green-500/30 hover:border-nature-green-400 transition-colors nature-glow"

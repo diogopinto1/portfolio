@@ -5,11 +5,11 @@ import ScrollMouseIcon from '../components/ScrollMouseIcon'
 
 const Home = () => {
   const skills = [
-    'Machine Learning',
-    'Time Series',
-    'MLOps',
-    'GIS/Remote Sensing',
+    'Fullstack',
     'AgriTech',
+    'DevOps/MLOps',
+    'Remote Sensing',
+    'Engineering',
     'Sustainability'
   ]
 
@@ -29,9 +29,9 @@ const Home = () => {
               </span>
             </h1>
             <p className="text-lg text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-              I connect agronomy and machine learning to create sustainable solutions. 
-              Currently working on groundwater forecasting and water pollution mitigation at INESC TEC. 
-              Specializing in time series analysis, IoT sensor data processing, and building end-to-end ML pipelines.
+              Data Scientist specializing in machine learning, time series analysis, and end-to-end ML pipelines, 
+              with a strong knowledge in green sciences and engineering. I transform complex data into actionable insights 
+              across any industry, from predictive modeling to intelligent automation.
             </p>
             
             {/* Skills Tags */}
@@ -56,12 +56,12 @@ const Home = () => {
                 <Eye className="mr-2" size={20} />
                 View Portfolio
               </Link>
-              <a
-                href="/contact"
+              <Link
+                to="/about"
                 className="inline-flex items-center px-8 py-4 border border-nature-green-500 text-nature-green-400 rounded-lg hover:bg-nature-green-500/10 hover:border-nature-green-400 transition-all duration-300 font-medium"
               >
-                Hire Me
-              </a>
+                About me
+              </Link>
             </div>
           </div>
         </div>
@@ -81,7 +81,7 @@ const Home = () => {
               Data Science
             </h3>
             <p className="text-gray-300 leading-relaxed">
-              Machine learning, statistical analysis, and data visualization using Python, R, and modern tools for agricultural and environmental data.
+              Machine learning, statistical analysis, and data visualization using Python, R, and modern tools for any domain and industry.
             </p>
           </div>
           <div className="text-center p-8 rounded-xl nature-card hover:nature-glow transition-all duration-500 leaf-float" style={{ animationDelay: '0.5s' }}>
@@ -92,7 +92,7 @@ const Home = () => {
               Web Development
             </h3>
             <p className="text-gray-300 leading-relaxed">
-              Full-stack development with React, Node.js, and modern frameworks for scalable agricultural tech applications.
+              Full-stack development with React, Node.js, and modern frameworks for scalable applications across any industry.
             </p>
           </div>
           <div className="text-center p-8 rounded-xl nature-card hover:nature-glow transition-all duration-500 leaf-float" style={{ animationDelay: '1s' }}>
@@ -103,7 +103,7 @@ const Home = () => {
               AI & ML
             </h3>
             <p className="text-gray-300 leading-relaxed">
-              Deep learning, computer vision, and AI model deployment for precision agriculture and environmental monitoring.
+              Deep learning, computer vision, and AI model deployment for any domain, from precision monitoring to predictive analytics.
             </p>
           </div>
         </div>
@@ -113,7 +113,7 @@ const Home = () => {
       <section className="text-center py-20 bg-gradient-to-r from-nature-green-500/10 to-nature-green-600/10 rounded-2xl border border-nature-green-500/30 nature-glow">
         <h2 className="text-4xl font-bold mb-6 text-white text-tech">Let's Work Together</h2>
         <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
-          Have a project in mind? I'd love to hear about your agricultural tech challenges.
+          Have a project in mind? I'd love to hear about your challenges and how we can work together.
         </p>
         <Link
           to="/contact"

@@ -1,8 +1,44 @@
-import React, { useState } from 'react'
-import { Download, Mail, Linkedin, Github, Calendar, MapPin, Building, Award, BookOpen, Code, Database, Brain, ChevronDown, ChevronUp, Globe } from 'lucide-react'
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { Download, Mail, Linkedin, Github, Calendar, MapPin, Building, Award, BookOpen, Code, Database, Brain, ChevronDown, ChevronUp, Anchor, ExternalLink, ArrowUp } from 'lucide-react'
 
 const CV = () => {
   const [expandedCards, setExpandedCards] = useState({})
+  const [showScrollTop, setShowScrollTop] = useState(false)
+
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault()
+    const element = document.getElementById(targetId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
+  const scrollToTop = () => {
+    const navSection = document.getElementById('nav-filter')
+    if (navSection) {
+      // Get the position of the navigation section in the document
+      const navPosition = navSection.offsetTop
+      // Scroll to the navigation section position minus a small offset to ensure it's at the top
+      window.scrollTo({ top: navPosition - 20, behavior: 'smooth' })
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const experienceSection = document.getElementById('experience')
+      if (experienceSection) {
+        const rect = experienceSection.getBoundingClientRect()
+        // Show button when Experience section has passed the top of viewport
+        setShowScrollTop(rect.top < -100)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   const toggleCard = (index) => {
     setExpandedCards(prev => ({
@@ -83,7 +119,7 @@ const CV = () => {
         "Updated and developed interactive dashboard in Aquasafe, with weekly and monthly aggregations by location",
         "Automated temporal ingestion and aggregation, documentation and versioning"
       ],
-      technologies: ["Microsoft SQL", "Sensors/Telemetry", "Python", "Pandas", "Docker", "Power BI"],
+      technologies: ["Microsoft SQL", "Sensors/Telemetry", "Python", "Pandas", "Docker", "Excel", "PostgreSQL"],
       icon: <Database className="w-5 h-5" />
     },
     {
@@ -100,8 +136,39 @@ const CV = () => {
       ],
       technologies: ["Python", "BeautifulSoup", "Scrapy", "REST APIs", "Excel", "Power Query", "Power Pivot", "DAX", "Office365", "SharePoint", "Power BI", "Git", "FastAPI", "Flask"],
       icon: <Code className="w-5 h-5" />
+    },
+    {
+      title: "Officer Navy",
+      company: "Marinha Portuguesa",
+      location: "Vale de Zebro, Portugal",
+      period: "04/2017 – 11/2017",
+      description: "Contract service as an Officer in the Marine Corps (Fuzileiro class).",
+      details: [
+        "Military service as contracted Officer",
+        "Marine Corps (Fuzileiro) specialization"
+      ],
+      technologies: [],
+      icon: <Anchor className="w-5 h-5" />
     }
   ]
+
+  // Extract year and month from period string (e.g., "01/2025 – Present" or "06/2022 – 08/2022")
+  const extractDate = (period) => {
+    const match = period.match(/(\d{2})\/(\d{4})/)
+    if (match) {
+      const month = parseInt(match[1])
+      const year = parseInt(match[2])
+      return year * 12 + month // Convert to months for easier sorting
+    }
+    return 0
+  }
+
+  // Sort experiences by date (oldest first)
+  const sortedExperiences = [...experiences].sort((a, b) => {
+    const dateA = extractDate(a.period)
+    const dateB = extractDate(b.period)
+    return dateA - dateB // Ascending order (oldest first)
+  })
 
   const education = [
     {
@@ -130,6 +197,64 @@ const CV = () => {
     }
   ]
 
+  const certificates = [
+    {
+      title: "Supervised Machine Learning: Regression and Classification",
+      issuer: "Stanford University",
+      period: "01/11/2025 – 07/11/2025",
+      description: "Building machine learning models in Python using NumPy and scikit-learn. Supervised learning models for prediction and binary classification, including linear and logistic regression.",
+      link: "https://coursera.org/share/b6f0dc9df1243695a0e06317641eea15"
+    },
+    {
+      title: "Teacher Training - Data Science",
+      issuer: "Faculty of Sciences, University of Lisbon",
+      period: "12/02/2025 – 14/02/2025",
+      description: "Introduction to data science, data analysis and manipulation, machine learning and data mining, and interdisciplinary applications."
+    },
+    {
+      title: "Teacher Training - Control, Intelligent Systems and Robotics",
+      issuer: "Instituto Superior Técnico - idMEC",
+      period: "12/02/2025 – 14/02/2025",
+      description: "Control systems, intelligent systems (Fuzzy Systems, Neural Networks, Learning), and robotics (Kinematics, Dynamics, Machine Intelligence)."
+    },
+    {
+      title: "Joining Data in SQL",
+      issuer: "DataCamp",
+      period: "22/08/2023",
+      description: "Working with multiple tables in SQL, using inner joins, outer joins, cross joins, and set clauses (union, intersect, except)."
+    },
+    {
+      title: "Intermediate SQL",
+      issuer: "DataCamp",
+      period: "09/08/2023",
+      description: "Filtering and comparing data, using aggregation functions, ordering and grouping data, and presenting data cleanly with aliasing."
+    },
+    {
+      title: "Python Programming from Zero to Advanced",
+      issuer: "Udemy",
+      period: "09/02/2023 – 10/02/2023",
+      description: "Python programming from basics to advanced level."
+    },
+    {
+      title: "Complete Computer Science Course",
+      issuer: "Harvard CS50",
+      period: "01/2023 – 02/2023",
+      description: "C, Arrays, Algorithms, Memory, Data Structures, Python, SQL, HTML, CSS, JavaScript, Cybersecurity."
+    },
+    {
+      title: "Geoprocessing Course",
+      issuer: "Udemy",
+      period: "19/07/2022",
+      description: "Geoprocessing and QGIS applied to precision agriculture."
+    },
+    {
+      title: "GIS Course",
+      issuer: "Instituto Superior de Agronomia",
+      period: "09/2021",
+      description: "Unleash QGIS with Python."
+    }
+  ]
+
   const skills = [
     { category: "Programming", items: ["Python", "JavaScript", "R", "SQL", "TypeScript", "Java", "C", "C++", "HTML5", "CSS3", "Bootstrap", "React"] },
     { category: "Data Science", items: ["Pandas", "NumPy", "Scikit-learn", "TensorFlow", "Keras", "Matplotlib", "Seaborn", "Plotly", "Power BI", "Power Query", "DAX"] },
@@ -138,9 +263,9 @@ const CV = () => {
   ]
 
   const stats = [
-    { number: "18", label: "Master's (Final Grade)" },
+    { number: "2", label: "Articles" },
     { number: "3+", label: "Years Experience" },
-    { number: "6+", label: "Professional Projects" }
+    { number: "10+", label: "Professional Projects" }
   ]
 
   return (
@@ -155,10 +280,10 @@ const CV = () => {
             Data Scientist — AI Enthusiast
           </h2>
           <p className="text-lg text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-            <span className="text-nature-green-400 font-semibold">Curiosity → Data → AI → Impact</span><br/>
-            Developing AI-driven agricultural solutions through machine learning and remote sensing 
-            for sustainable farming and environmental conservation. Currently working on groundwater 
-            forecasting and water pollution mitigation at INESC TEC.
+            Data Scientist with a background in green sciences and engineering, focused on machine learning, 
+            time series forecasting, and end-to-end ML pipeline development. I leverage data-driven approaches 
+            to solve complex challenges across diverse industries, delivering intelligent solutions that create 
+            measurable impact.
           </p>
 
           {/* Stats */}
@@ -181,12 +306,12 @@ const CV = () => {
               <Download className="mr-2" size={20} />
               Download CV
             </a>
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="inline-flex items-center px-8 py-4 border border-nature-green-500 text-nature-green-400 rounded-lg hover:bg-nature-green-500/10 hover:border-nature-green-400 transition-all duration-300 font-medium"
             >
               Let's Connect
-            </a>
+            </Link>
           </div>
 
           {/* Social Links */}
@@ -198,19 +323,75 @@ const CV = () => {
               <Mail className="w-5 h-5 text-nature-green-400" />
             </a>
             <a
-              href="http://www.diogopinto1.com"
+              href="https://github.com/diogopinto1"
               target="_blank"
               rel="noopener noreferrer"
               className="w-12 h-12 bg-nature-green-500/20 border border-nature-green-500/40 rounded-full flex items-center justify-center hover:bg-nature-green-500/30 hover:border-nature-green-400 transition-colors nature-glow"
             >
-              <Globe className="w-5 h-5 text-nature-green-400" />
+              <Github className="w-5 h-5 text-nature-green-400" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/diogo-pinto-36a460210/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-12 h-12 bg-nature-green-500/20 border border-nature-green-500/40 rounded-full flex items-center justify-center hover:bg-nature-green-500/30 hover:border-nature-green-400 transition-colors nature-glow"
+            >
+              <Linkedin className="w-5 h-5 text-nature-green-400" />
             </a>
           </div>
         </div>
       </section>
 
+      {/* Navigation Filter */}
+      <section id="nav-filter" className="sticky top-0 z-50 bg-dark-bg/95 backdrop-blur-sm border-b border-nature-green-500/20 py-4 px-4">
+        <div className="max-w-6xl mx-auto">
+          <nav className="flex flex-wrap justify-center gap-4 md:gap-6">
+            <a
+              href="#experience"
+              onClick={(e) => handleNavClick(e, 'experience')}
+              className="relative text-sm md:text-base text-gray-400 hover:text-nature-green-400 transition-colors duration-300 px-3 py-2 group"
+            >
+              Experience
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-nature-green-400 to-transparent group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a
+              href="#education"
+              onClick={(e) => handleNavClick(e, 'education')}
+              className="relative text-sm md:text-base text-gray-400 hover:text-nature-green-400 transition-colors duration-300 px-3 py-2 group"
+            >
+              Education
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-nature-green-400 to-transparent group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a
+              href="#publications"
+              onClick={(e) => handleNavClick(e, 'publications')}
+              className="relative text-sm md:text-base text-gray-400 hover:text-nature-green-400 transition-colors duration-300 px-3 py-2 group"
+            >
+              Publications
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-nature-green-400 to-transparent group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a
+              href="#skills"
+              onClick={(e) => handleNavClick(e, 'skills')}
+              className="relative text-sm md:text-base text-gray-400 hover:text-nature-green-400 transition-colors duration-300 px-3 py-2 group"
+            >
+              Skills
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-nature-green-400 to-transparent group-hover:w-full transition-all duration-300"></span>
+            </a>
+            <a
+              href="#certificates"
+              onClick={(e) => handleNavClick(e, 'certificates')}
+              className="relative text-sm md:text-base text-gray-400 hover:text-nature-green-400 transition-colors duration-300 px-3 py-2 group"
+            >
+              Certificates
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-transparent via-nature-green-400 to-transparent group-hover:w-full transition-all duration-300"></span>
+            </a>
+          </nav>
+        </div>
+      </section>
+
       {/* Experience Section */}
-      <section className="py-16 px-4">
+      <section id="experience" className="py-16 px-4 scroll-mt-20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <div className="text-8xl font-bold text-gray-200 mb-4">02</div>
@@ -227,7 +408,7 @@ const CV = () => {
             
             {/* Experience Cards */}
             <div className="space-y-12">
-              {experiences.map((exp, index) => (
+              {sortedExperiences.map((exp, index) => (
                 <div
                   key={index}
                   className={`relative flex flex-col md:flex-row md:items-center gap-8 md:gap-0 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
@@ -242,7 +423,7 @@ const CV = () => {
                     }`}
                   >
                     <div 
-                      className="nature-card rounded-xl p-6 hover:nature-glow transition-all duration-300 cursor-pointer"
+                      className="nature-card rounded-xl p-6 hover:nature-glow transition-all duration-300 cursor-pointer hover:scale-[1.02] hover:shadow-md hover:shadow-nature-green-500/10"
                       onClick={() => toggleCard(index)}
                     >
                       {/* Card Header */}
@@ -288,19 +469,21 @@ const CV = () => {
                           </div>
 
                           {/* Technologies Used */}
-                          <div>
-                            <h4 className="text-lg font-semibold text-white mb-3 text-tech">Technologies Used</h4>
-                            <div className="flex flex-wrap gap-2">
-                              {exp.technologies.map((tech, techIndex) => (
-                                <span
-                                  key={techIndex}
-                                  className="px-3 py-1 bg-nature-green-500/20 text-nature-green-400 border border-nature-green-500/40 rounded-full text-sm font-medium"
-                                >
-                                  {tech}
-                                </span>
-                              ))}
+                          {exp.technologies && exp.technologies.length > 0 && (
+                            <div>
+                              <h4 className="text-lg font-semibold text-white mb-3 text-tech">Technologies Used</h4>
+                              <div className="flex flex-wrap gap-2">
+                                {exp.technologies.map((tech, techIndex) => (
+                                  <span
+                                    key={techIndex}
+                                    className="px-3 py-1 bg-nature-green-500/20 text-nature-green-400 border border-nature-green-500/40 rounded-full text-sm font-medium"
+                                  >
+                                    {tech}
+                                  </span>
+                                ))}
+                              </div>
                             </div>
-                          </div>
+                          )}
                         </div>
                       )}
                     </div>
@@ -313,13 +496,13 @@ const CV = () => {
       </section>
 
       {/* Education Section */}
-      <section className="py-16 px-4">
+      <section id="education" className="py-16 px-4 scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <div className="text-8xl font-bold text-gray-200 mb-4">03</div>
             <h2 className="text-4xl font-bold text-white mb-4 text-tech">Education</h2>
             <p className="text-lg text-gray-300">
-              Academic background in Agricultural and Environmental Engineering.
+              Academic background in Agricultural Engineering and Computer Science.
             </p>
           </div>
 
@@ -345,7 +528,7 @@ const CV = () => {
       </section>
 
       {/* Publications Section */}
-      <section className="py-16 px-4">
+      <section id="publications" className="py-16 px-4 scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <div className="text-8xl font-bold text-gray-200 mb-4">04</div>
@@ -377,7 +560,7 @@ const CV = () => {
       </section>
 
       {/* Skills Section */}
-      <section className="py-16 px-4">
+      <section id="skills" className="py-16 px-4 scroll-mt-20">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <div className="text-8xl font-bold text-gray-200 mb-4">05</div>
@@ -406,6 +589,61 @@ const CV = () => {
           </div>
         </div>
       </section>
+
+      {/* Certificates Section */}
+      <section id="certificates" className="py-16 px-4 scroll-mt-20">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="text-8xl font-bold text-gray-200 mb-4">06</div>
+            <h2 className="text-4xl font-bold text-white mb-4 text-tech">Certificates</h2>
+            <p className="text-lg text-gray-300">
+              Professional certifications and training courses in data science, machine learning, and technology.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {certificates.map((cert, index) => (
+              <div key={index} className="nature-card rounded-xl p-6 hover:nature-glow transition-all duration-300 hover:scale-[1.02] hover:shadow-md hover:shadow-nature-green-500/10">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex-1">
+                    <h3 className="text-xl font-bold text-white mb-2 text-tech">{cert.title}</h3>
+                    <div className="flex items-center text-nature-green-400 mb-2">
+                      <Building className="w-4 h-4 mr-2" />
+                      <span className="font-medium">{cert.issuer}</span>
+                    </div>
+                    <div className="flex items-center text-gray-400 text-sm mb-3">
+                      <Calendar className="w-4 h-4 mr-2" />
+                      <span>{cert.period}</span>
+                    </div>
+                    <p className="text-gray-300 text-sm">{cert.description}</p>
+                  </div>
+                  {cert.link && (
+                    <a
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ml-4 text-nature-green-400 hover:text-nature-green-300 transition-colors"
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-4 md:bottom-8 md:right-8 z-50 w-12 h-12 md:w-14 md:h-14 bg-nature-green-500/20 border border-nature-green-500/40 rounded-full flex items-center justify-center hover:bg-nature-green-500/30 hover:border-nature-green-400 active:bg-nature-green-500/40 transition-all duration-300 nature-glow hover:scale-110 active:scale-95 touch-manipulation"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="w-5 h-5 md:w-6 md:h-6 text-nature-green-400" />
+        </button>
+      )}
     </div>
   )
 }

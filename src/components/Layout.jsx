@@ -12,8 +12,7 @@ const Layout = ({ children }) => {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Profile', href: '/about' },
-    { name: 'CV', href: '/cv' },
+    { name: 'Curriculum', href: '/cv' },
     { name: 'Portfolio', href: '/projects' },
     { name: 'Contact', href: '/contact' },
   ]
@@ -76,12 +75,12 @@ const Layout = ({ children }) => {
                 <Download size={16} className="mr-2" />
                 Download CV
               </a>
-              <a
-                href="/contact"
+              <Link
+                to="/about"
                 className="flex items-center px-6 py-2 bg-nature-green-500 text-white font-semibold rounded-lg hover:bg-nature-green-600 transition-colors"
               >
-                Hire me
-              </a>
+                About me
+              </Link>
             </div>
 
             {/* Mobile menu button */}
@@ -121,7 +120,7 @@ const Layout = ({ children }) => {
                     <Github size={20} />
                   </a>
                   <a
-                    href="https://linkedin.com/in/diogopinto"
+                    href="https://www.linkedin.com/in/diogo-pinto-36a460210/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="p-2 text-gray-300 hover:text-nature-green-400 transition-colors"

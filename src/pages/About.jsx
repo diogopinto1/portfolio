@@ -1,17 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Code, Database, Brain, Globe, Award, Users, Leaf, Zap } from 'lucide-react'
 
 const About = () => {
   const [isFlipped, setIsFlipped] = useState(false)
 
-  const handleImageClick = () => {
-    setIsFlipped(!isFlipped)
-  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsFlipped(prev => !prev)
+    }, 20000) // 20 segundos
+
+    return () => clearInterval(interval)
+  }, [])
   const skills = [
-    { category: 'Programming', items: ['Python', 'JavaScript', 'R', 'SQL', 'TypeScript', 'Java', 'C', 'C++'] },
-    { category: 'Data Science', items: ['Pandas', 'NumPy', 'Scikit-learn', 'TensorFlow', 'Keras', 'Matplotlib', 'Seaborn', 'Plotly'] },
-    { category: 'AgriTech & GIS', items: ['Remote Sensing', 'GIS (ArcGIS, QGIS)', 'Precision Agriculture', 'IoT Sensors', 'SIG (NDVI/SAVI)'] },
-    { category: 'Tools & Platforms', items: ['Git', 'Docker', 'AWS', 'Azure', 'PostgreSQL', 'MySQL', 'Power BI', 'React'] }
+    { category: 'Programming', items: ['Python', 'JavaScript', 'R', 'SQL', 'TypeScript', 'Java', 'C', 'C++', 'HTML5', 'CSS3'] },
+    { category: 'Data Science & ML', items: ['Pandas', 'NumPy', 'Scikit-learn', 'TensorFlow', 'Keras', 'Neural Networks', 'Random Forest', 'XGBoost', 'ARIMA', 'LSTM', 'LangChain'] },
+    { category: 'Visualization & Analytics', items: ['Matplotlib', 'Seaborn', 'Plotly', 'Power BI', 'Power Query', 'DAX', 'Jupyter'] },
+    { category: 'Fullstack & Web', items: ['React', 'Node.js', 'FastAPI', 'Flask', 'REST APIs', 'Bootstrap'] },
+    { category: 'DevOps & Infrastructure', items: ['Git', 'Docker', 'MLOps', 'DevOps', 'CI/CD', 'AWS', 'Azure'] },
+    { category: 'Databases', items: ['PostgreSQL', 'MySQL', 'MariaDB', 'Microsoft SQL'] },
+    { category: 'Automation & Tools', items: ['n8n', 'Power Automate', 'Jupyter'] },
+    { category: 'AgriTech & GIS', items: ['Remote Sensing', 'GIS (ArcGIS, QGIS)', 'Precision Agriculture', 'IoT Sensors', 'SIG (NDVI/SAVI)'] }
   ]
 
   const experiences = [
@@ -32,6 +40,18 @@ const About = () => {
       company: 'The Summer Berry',
       period: '10/2023 – 12/2023',
       description: 'Predictive model (Forecasting) for berry production productivity. Development of ML model (Random Forest) with temporal validation and interactive dashboard for prediction monitoring.'
+    },
+    {
+      title: 'Data Scientist - Extracurricular Internship',
+      company: 'Águas do Tejo Atlântico - Grupo Águas de Portugal',
+      period: '06/2023 – 08/2023',
+      description: 'Aquasafe Project: Data analysis and treatment, and IDE development. Information centralization with PostgreSQL, water course monitoring with sensors, and interactive dashboard development with automated temporal aggregation.'
+    },
+    {
+      title: 'Data Scientist - Extracurricular Internship',
+      company: 'CONSULAI',
+      period: '06/2022 – 08/2022',
+      description: 'R&D Department: Consulting/Digitalization in Agricultural, Food, Forestry, Sea and Rural Development sectors. Research and web scraping from official sources, data centralization and modeling, API development, and Power BI dashboard creation for market analysis.'
     }
   ]
 
@@ -47,28 +67,30 @@ const About = () => {
             {/* Text Content */}
             <div className="flex-1 text-center lg:text-left">
               <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                I'm a Data Scientist with a unique background in agricultural engineering, combining 
-                experience in machine learning with deep domain knowledge in sustainable agriculture and 
-                environmental science. My journey follows a simple philosophy: <span className="text-nature-green-400 font-semibold">Curiosity → Data → AI → Impact</span>.
+                I'm a <span className="text-white font-semibold">Data Scientist</span> with a unique background in <span className="text-white font-semibold">agricultural engineering</span>, combining 
+                experience in <span className="text-white font-semibold">machine learning</span> with deep domain knowledge in sustainable agriculture and 
+                environmental science.
+              </p>
+              <p className="text-xl text-nature-green-400 font-bold mb-8 leading-relaxed">
+                Curiosity → Data → AI → Impact
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
-                Currently working at INESC TEC on the Horizon Europe project, developing predictive models 
-                for groundwater level forecasting and water pollution mitigation in the Mediterranean. 
-                I specialize in time series analysis, IoT sensor data processing, and building end-to-end 
-                ML pipelines with a focus on reproducibility and continuous monitoring.
+                Currently working at <span className="text-white font-semibold">INESC TEC</span> on the <span className="text-white font-semibold">Horizon Europe</span> project, developing <span className="text-white font-semibold">predictive models</span> 
+                 for groundwater level forecasting and water pollution mitigation in the Mediterranean. 
+                I specialize in <span className="text-white font-semibold">time series analysis</span>, <span className="text-white font-semibold">IoT sensor data processing</span>, and building <span className="text-white font-semibold">end-to-end 
+                ML pipelines</span> with a focus on reproducibility and continuous monitoring.
               </p>
             </div>
             
             {/* Profile Image - Desktop Only */}
             <div className="hidden lg:block flex-shrink-0 mt-8 lg:mt-0 relative">
               <div 
-                className="relative w-80 h-80 cursor-pointer"
+                className="relative w-80 h-80"
                 style={{
                   perspective: '1000px'
                 }}
-                onClick={handleImageClick}
               >
-                <div
+                <div 
                   className="relative w-full h-full"
                   style={{
                     transformStyle: 'preserve-3d',
@@ -91,14 +113,14 @@ const About = () => {
                       className="w-full h-full object-cover"
                       style={{
                         filter: 'drop-shadow(0 0 8px rgba(74, 222, 128, 0.2)) drop-shadow(0 0 16px rgba(34, 197, 94, 0.15))',
-                        transform: 'translateY(-2px)',
+                      transform: 'translateY(-2px)',
                         borderRadius: '0'
-                      }}
-                    />
+                    }}
+                  />
                   </div>
                   
                   {/* Back side - emoji3.png */}
-                  <div
+                  <div 
                     className="absolute w-full h-full"
                     style={{
                       backfaceVisibility: 'hidden',
@@ -114,8 +136,8 @@ const About = () => {
                         filter: 'drop-shadow(0 0 8px rgba(74, 222, 128, 0.2)) drop-shadow(0 0 16px rgba(34, 197, 94, 0.15))',
                         transform: 'translateY(-2px)',
                         borderRadius: '0'
-                      }}
-                    />
+                    }}
+                  />
                   </div>
                 </div>
               </div>
@@ -129,7 +151,7 @@ const About = () => {
         <h2 className="text-3xl font-bold text-center text-white mb-12 text-tech">
           Skills & Technologies
         </h2>
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skills.map((skill, index) => (
             <div key={index} className="bg-tech-card green-border rounded-xl p-6 hover:green-border-glow transition-all duration-300">
               <h3 className="text-xl font-semibold text-white mb-4 text-tech">
@@ -191,7 +213,7 @@ const About = () => {
               Innovation
             </h3>
             <p className="text-gray-300">
-              Always exploring new technologies and methodologies to solve complex agricultural and environmental challenges.
+              Continuously seeking cutting-edge approaches and novel techniques, powered by AI, to address intricate problems in diverse fields.
             </p>
           </div>
           <div className="text-center p-8 rounded-xl bg-tech-card green-border hover:green-border-glow transition-all duration-300">
@@ -202,7 +224,7 @@ const About = () => {
               Sustainability
             </h3>
             <p className="text-gray-300">
-              Committed to using technology to create sustainable solutions for agriculture and environmental conservation.
+              Dedicated to leveraging data-driven approaches that deliver meaningful and responsible outcomes for businesses and organizations.
             </p>
           </div>
           <div className="text-center p-8 rounded-xl bg-tech-card green-border hover:green-border-glow transition-all duration-300">
@@ -213,7 +235,7 @@ const About = () => {
               Excellence
             </h3>
             <p className="text-gray-300">
-              Delivering high-quality solutions that make a real impact in the agricultural and environmental sectors.
+              Striving for superior results and measurable value in every project, regardless of the application area.
             </p>
           </div>
         </div>
