@@ -5,6 +5,7 @@ import { Download, Mail, Linkedin, Github, Calendar, MapPin, Building, Award, Bo
 const CV = () => {
   const [expandedCards, setExpandedCards] = useState({})
   const [showScrollTop, setShowScrollTop] = useState(false)
+  const [countedStats, setCountedStats] = useState({ articles: 0, experience: 0, projects: 0 })
 
   const handleNavClick = (e, targetId) => {
     e.preventDefault()
@@ -263,10 +264,49 @@ const CV = () => {
   ]
 
   const stats = [
-    { number: "2", label: "Articles" },
-    { number: "3+", label: "Years Experience" },
-    { number: "10+", label: "Professional Projects" }
+    { number: 2, label: "Articles", key: "articles" },
+    { number: 3, label: "Years Experience", key: "experience", suffix: "+" },
+    { number: 12, label: "Professional Projects", key: "projects", suffix: "+" }
   ]
+
+  // Animate counting effect - sequential from left to right
+  useEffect(() => {
+    const duration = 800 // 0.8 seconds (faster)
+    const steps = 40
+    const stepDuration = duration / steps
+    const delayBetweenStats = 200 // 200ms delay between each stat
+
+    const animateStat = (stat, delay) => {
+      setTimeout(() => {
+        const targetValue = stat.number
+        let currentStep = 0
+
+        const interval = setInterval(() => {
+          currentStep++
+          const progress = Math.min(currentStep / steps, 1)
+          const currentValue = Math.floor(targetValue * progress)
+
+          setCountedStats((prev) => ({
+            ...prev,
+            [stat.key]: currentValue
+          }))
+
+          if (currentStep >= steps) {
+            clearInterval(interval)
+            setCountedStats((prev) => ({
+              ...prev,
+              [stat.key]: targetValue
+            }))
+          }
+        }, stepDuration)
+      }, delay)
+    }
+
+    // Animate each stat sequentially from left to right
+    stats.forEach((stat, index) => {
+      animateStat(stat, index * (duration + delayBetweenStats))
+    })
+  }, []) // Run only once on mount
 
   return (
     <div className="min-h-screen" style={{ background: 'var(--dark-bg)' }}>
@@ -290,7 +330,9 @@ const CV = () => {
           <div className="flex justify-center gap-12 mb-12">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl font-bold text-nature-green-400 mb-2 text-tech">{stat.number}</div>
+                <div className="text-4xl font-bold text-nature-green-400 mb-2 text-tech">
+                  {countedStats[stat.key]}{stat.suffix || ''}
+                </div>
                 <div className="text-sm text-gray-400">{stat.label}</div>
               </div>
             ))}
@@ -470,19 +512,19 @@ const CV = () => {
 
                           {/* Technologies Used */}
                           {exp.technologies && exp.technologies.length > 0 && (
-                            <div>
-                              <h4 className="text-lg font-semibold text-white mb-3 text-tech">Technologies Used</h4>
-                              <div className="flex flex-wrap gap-2">
-                                {exp.technologies.map((tech, techIndex) => (
-                                  <span
-                                    key={techIndex}
-                                    className="px-3 py-1 bg-nature-green-500/20 text-nature-green-400 border border-nature-green-500/40 rounded-full text-sm font-medium"
-                                  >
-                                    {tech}
-                                  </span>
-                                ))}
-                              </div>
+                          <div>
+                            <h4 className="text-lg font-semibold text-white mb-3 text-tech">Technologies Used</h4>
+                            <div className="flex flex-wrap gap-2">
+                              {exp.technologies.map((tech, techIndex) => (
+                                <span
+                                  key={techIndex}
+                                  className="px-3 py-1 bg-nature-green-500/20 text-nature-green-400 border border-nature-green-500/40 rounded-full text-sm font-medium"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
                             </div>
+                          </div>
                           )}
                         </div>
                       )}
