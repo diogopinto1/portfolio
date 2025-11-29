@@ -24,16 +24,6 @@ const About = () => {
     return () => clearInterval(interval)
   }, [])
 
-  // Check if mobile
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
-
   // Carousel auto-play with infinite loop
   useEffect(() => {
     const carouselInterval = setInterval(() => {
