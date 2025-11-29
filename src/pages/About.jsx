@@ -1,8 +1,20 @@
 import React, { useState, useEffect } from 'react'
-import { Code, Database, Brain, Globe, Award, Users, Leaf, Zap } from 'lucide-react'
+import { Code, Database, Brain, Globe, Award, Users, Leaf, Zap, Search, Sparkles } from 'lucide-react'
 
 const About = () => {
   const [isFlipped, setIsFlipped] = useState(false)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isMobile, setIsMobile] = useState(false)
+
+  // Check if mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -11,6 +23,70 @@ const About = () => {
 
     return () => clearInterval(interval)
   }, [])
+
+  // Check if mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  // Carousel auto-play with infinite loop
+  useEffect(() => {
+    const carouselInterval = setInterval(() => {
+      setCurrentIndex((prevIndex) => {
+        const maxIndex = isMobile ? 5 : 5 // Same logic for both
+        const nextIndex = prevIndex + 1
+        // When reaching the end of the first set (index 5 = Creativity), 
+        // jump to start of second duplicate set (index 5) seamlessly
+        if (nextIndex > maxIndex) {
+          // Reset to 5 (start of second duplicate set) after transition
+          setTimeout(() => {
+            setCurrentIndex(5)
+          }, 500) // After transition completes
+          return 5
+        }
+        return nextIndex
+      })
+    }, 4000) // Change card every 4 seconds
+
+    return () => clearInterval(carouselInterval)
+  }, [isMobile])
+
+  const values = [
+    {
+      title: 'Innovation',
+      icon: <Code className="text-green-400" size={32} />,
+      description: 'Continuously seeking cutting-edge approaches and novel techniques, powered by AI, to address intricate problems in diverse fields.'
+    },
+    {
+      title: 'Sustainability',
+      icon: <Leaf className="text-green-400" size={32} />,
+      description: 'Dedicated to leveraging data-driven approaches that deliver meaningful and responsible outcomes for businesses and organizations.'
+    },
+    {
+      title: 'Excellence',
+      icon: <Zap className="text-green-400" size={32} />,
+      description: 'Striving for superior results and measurable value in every project, regardless of the application area.'
+    },
+    {
+      title: 'Curiosity',
+      icon: <Search className="text-green-400" size={32} />,
+      description: 'Driven by an insatiable desire to explore, learn, and discover new possibilities in technology and data science.'
+    },
+    {
+      title: 'Creativity',
+      icon: <Sparkles className="text-green-400" size={32} />,
+      description: 'Transforming complex problems into elegant solutions through innovative thinking and creative problem-solving approaches.'
+    }
+  ]
+
+  // Duplicate cards for infinite loop effect
+  const infiniteValues = [...values, ...values, ...values]
+
   const skills = [
     { category: 'Programming', items: ['Python', 'JavaScript', 'R', 'SQL', 'TypeScript', 'Java', 'C', 'C++', 'HTML5', 'CSS3'] },
     { category: 'Data Science & ML', items: ['Pandas', 'NumPy', 'Scikit-learn', 'TensorFlow', 'Keras', 'Neural Networks', 'Random Forest', 'XGBoost', 'ARIMA', 'LSTM', 'LangChain'] },
@@ -59,31 +135,35 @@ const About = () => {
     <div className="space-y-16">
       {/* About Me Section */}
       <section className="py-16">
-        <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 text-tech text-center">
+        <h1 className="text-4xl md:text-6xl font-bold text-white mb-12 text-tech text-center">
           About Me
         </h1>
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:gap-12">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:gap-12">
             {/* Text Content */}
             <div className="flex-1 text-center lg:text-left">
-              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                I'm a <span className="text-white font-semibold">Data Scientist</span> with a unique background in <span className="text-white font-semibold">agricultural engineering</span>, combining 
-                experience in <span className="text-white font-semibold">machine learning</span> with deep domain knowledge in sustainable agriculture and 
-                environmental science.
+              <p className="text-lg text-gray-300 mb-6 leading-relaxed">
+                Growing up by the ocean and later serving in the navy, I developed a strong connection with nature, 
+                discipline, and problem-solving under pressure. After my time in the navy, I studied <span className="text-white font-semibold">agronomic engineering</span> 
+                and <span className="text-white font-semibold">environmental sciences</span>. As I got closer to technology, I became fascinated by how 
+                <span className="text-white font-semibold"> process automation</span> and <span className="text-white font-semibold">data-driven systems</span> can transform workflows 
+                and turn data into meaningful insights that strongly influence final decisions.
               </p>
-              <p className="text-xl text-nature-green-400 font-bold mb-8 leading-relaxed">
+              <p className="text-xl text-nature-green-400 font-bold mb-6 leading-relaxed">
                 Curiosity → Data → AI → Impact
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
-                Currently working at <span className="text-white font-semibold">INESC TEC</span> on the <span className="text-white font-semibold">Horizon Europe</span> project, developing <span className="text-white font-semibold">predictive models</span> 
-                 for groundwater level forecasting and water pollution mitigation in the Mediterranean. 
-                I specialize in <span className="text-white font-semibold">time series analysis</span>, <span className="text-white font-semibold">IoT sensor data processing</span>, and building <span className="text-white font-semibold">end-to-end 
-                ML pipelines</span> with a focus on reproducibility and continuous monitoring.
+                Today, I'm a <span className="text-white font-semibold">Data Scientist</span> who turns that curiosity into impact. 
+                I combine my background in <span className="text-white font-semibold">green sciences</span> with expertise in 
+                <span className="text-white font-semibold"> machine learning</span>, <span className="text-white font-semibold">time series analysis</span>, 
+                and <span className="text-white font-semibold">end-to-end ML pipelines</span>. At <span className="text-white font-semibold">INESC TEC</span>, 
+                within a <span className="text-white font-semibold">Horizon Europe</span> project, I build predictive models for groundwater forecasting 
+                and water pollution mitigation—transforming complex environmental data into actionable insights for real-world decision making.
               </p>
             </div>
             
             {/* Profile Image - Desktop Only */}
-            <div className="hidden lg:block flex-shrink-0 mt-8 lg:mt-0 relative">
+            <div className="hidden lg:block flex-shrink-0 mt-8 lg:mt-8 relative lg:sticky lg:top-24">
               <div 
                 className="relative w-80 h-80"
                 style={{
@@ -172,71 +252,48 @@ const About = () => {
         </div>
       </section>
 
-      {/* Experience Section */}
-      <section className="py-16">
-        <h2 className="text-3xl font-bold text-center text-white mb-12 text-tech">
-          Professional Experience
-        </h2>
-        <div className="space-y-8">
-          {experiences.map((exp, index) => (
-            <div key={index} className="bg-tech-card green-border rounded-xl p-6 hover:green-border-glow transition-all duration-300">
-              <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                <h3 className="text-xl font-semibold text-white text-tech">
-                  {exp.title}
-                </h3>
-                <span className="text-green-400 text-sm font-mono">
-                  {exp.period}
-                </span>
-              </div>
-              <p className="text-green-300 mb-2 font-medium">
-                {exp.company}
-              </p>
-              <p className="text-gray-300">
-                {exp.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Values Section */}
       <section className="py-16">
         <h2 className="text-3xl font-bold text-center text-white mb-12 text-tech">
           What Drives Me
         </h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="text-center p-8 rounded-xl bg-tech-card green-border hover:green-border-glow transition-all duration-300">
-            <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6 tech-glow">
-              <Code className="text-green-400" size={32} />
+        <div className="relative max-w-6xl mx-auto px-4">
+          {/* Carousel Container */}
+          <div className="overflow-hidden">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * (isMobile ? 100 : 100 / 3)}%)` }}
+            >
+              {infiniteValues.map((value, index) => (
+                <div key={index} className="min-w-full md:min-w-[33.333%] px-2 md:px-4">
+                  <div className="text-center p-8 rounded-xl bg-tech-card green-border hover:green-border-glow transition-all duration-300 h-full">
+                    <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6 tech-glow">
+                      {value.icon}
+                    </div>
+                    <h3 className="text-xl font-semibold text-white mb-4 text-tech">
+                      {value.title}
+                    </h3>
+                    <p className="text-gray-300">
+                      {value.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-            <h3 className="text-xl font-semibold text-white mb-4 text-tech">
-              Innovation
-            </h3>
-            <p className="text-gray-300">
-              Continuously seeking cutting-edge approaches and novel techniques, powered by AI, to address intricate problems in diverse fields.
-            </p>
           </div>
-          <div className="text-center p-8 rounded-xl bg-tech-card green-border hover:green-border-glow transition-all duration-300">
-            <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6 tech-glow">
-              <Leaf className="text-green-400" size={32} />
-            </div>
-            <h3 className="text-xl font-semibold text-white mb-4 text-tech">
-              Sustainability
-            </h3>
-            <p className="text-gray-300">
-              Dedicated to leveraging data-driven approaches that deliver meaningful and responsible outcomes for businesses and organizations.
-            </p>
-          </div>
-          <div className="text-center p-8 rounded-xl bg-tech-card green-border hover:green-border-glow transition-all duration-300">
-            <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6 tech-glow">
-              <Zap className="text-green-400" size={32} />
-            </div>
-            <h3 className="text-xl font-semibold text-white mb-4 text-tech">
-              Excellence
-            </h3>
-            <p className="text-gray-300">
-              Striving for superior results and measurable value in every project, regardless of the application area.
-            </p>
+          
+          {/* Navigation Dots */}
+          <div className="flex justify-center gap-2 mt-8">
+            {values.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  index === (currentIndex % 5) ? 'bg-green-400 w-8' : 'bg-green-400/30'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </section>
