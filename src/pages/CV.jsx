@@ -164,6 +164,15 @@ const CV = () => {
     return 0
   }
 
+  // Extract year from period string for display
+  const extractYear = (period) => {
+    const match = period.match(/(\d{2})\/(\d{4})/)
+    if (match) {
+      return match[2] // Return the year (YYYY)
+    }
+    return null
+  }
+
   // Sort experiences by date (oldest first)
   const sortedExperiences = [...experiences].sort((a, b) => {
     const dateA = extractDate(a.period)
@@ -450,13 +459,28 @@ const CV = () => {
             
             {/* Experience Cards */}
             <div className="space-y-12">
-              {sortedExperiences.map((exp, index) => (
+              {sortedExperiences.map((exp, index) => {
+                const year = extractYear(exp.period)
+                return (
                 <div
                   key={index}
                   className={`relative flex flex-col md:flex-row md:items-center gap-8 md:gap-0 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}
                 >
                   {/* Timeline Dot */}
                   <div className="absolute left-1/2 top-6 md:top-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-4 h-4 bg-nature-green-500 rounded-full border-4 border-gray-800 z-10 nature-glow"></div>
+                  
+                  {/* Year Display - Opposite side of card */}
+                  {year && (
+                    <div
+                      className={`hidden md:flex w-5/12 items-center justify-center ${
+                        index % 2 === 0 ? 'md:pl-8 md:justify-end' : 'md:pr-8 md:justify-start'
+                      }`}
+                    >
+                      <span className="text-4xl md:text-5xl font-bold text-gray-700/30 text-tech">
+                        {year}
+                      </span>
+                    </div>
+                  )}
                   
                   {/* Experience Card */}
                   <div
@@ -531,7 +555,8 @@ const CV = () => {
                     </div>
                   </div>
                 </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </div>
