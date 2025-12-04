@@ -469,22 +469,27 @@ const CV = () => {
                   {/* Timeline Dot */}
                   <div className="absolute left-1/2 top-6 md:top-1/2 transform -translate-x-1/2 md:-translate-y-1/2 w-4 h-4 bg-nature-green-500 rounded-full border-4 border-gray-800 z-10 nature-glow"></div>
                   
-                  {/* Year Display - Opposite side of card */}
+                  {/* Year Display - Absolute positioned on opposite side */}
                   {year && (
                     <div
-                      className={`hidden md:flex w-5/12 items-center justify-center ${
-                        index % 2 === 0 ? 'md:pl-8 md:justify-end' : 'md:pr-8 md:justify-start'
+                      className={`hidden md:block absolute top-1/2 transform -translate-y-1/2 z-0 ${
+                        index % 2 === 0 ? 'right-0' : 'left-0'
                       }`}
+                      style={{ width: 'calc(50% - 2rem)' }}
                     >
-                      <span className="text-4xl md:text-5xl font-bold text-gray-700/30 text-tech">
-                        {year}
-                      </span>
+                      <div className={`flex items-center h-full ${
+                        index % 2 === 0 ? 'justify-end pr-8' : 'justify-start pl-8'
+                      }`}>
+                        <span className="text-4xl md:text-5xl font-bold text-gray-700/30 text-tech">
+                          {year}
+                        </span>
+                      </div>
                     </div>
                   )}
                   
                   {/* Experience Card */}
                   <div
-                    className={`w-full md:w-5/12 mx-auto md:mx-0 mt-12 md:mt-0 ${
+                    className={`w-full md:w-5/12 mx-auto md:mx-0 mt-12 md:mt-0 relative z-10 ${
                       index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
                     }`}
                   >
