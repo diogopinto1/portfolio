@@ -177,12 +177,12 @@ const About = () => {
                       transform: 'rotateY(0deg)'
                     }}
                   >
-                    <img
+                  <img
                       src="/portfolio/4.png"
-                      alt="Diogo Pinto - Data Scientist"
+                    alt="Diogo Pinto - Data Scientist"
                       className="w-full h-full object-cover"
-                      style={{
-                        filter: 'drop-shadow(0 0 8px rgba(74, 222, 128, 0.2)) drop-shadow(0 0 16px rgba(34, 197, 94, 0.15))',
+                    style={{
+                      filter: 'drop-shadow(0 0 8px rgba(74, 222, 128, 0.2)) drop-shadow(0 0 16px rgba(34, 197, 94, 0.15))',
                       transform: 'translateY(-2px)',
                         borderRadius: '0'
                     }}
@@ -257,16 +257,16 @@ const About = () => {
               {infiniteValues.map((value, index) => (
                 <div key={index} className="min-w-full md:min-w-[33.333%] px-2 md:px-4">
                   <div className="text-center p-8 rounded-xl bg-tech-card green-border hover:green-border-glow transition-all duration-300 h-full">
-                    <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6 tech-glow">
+            <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-6 tech-glow">
                       {value.icon}
-                    </div>
-                    <h3 className="text-xl font-semibold text-white mb-4 text-tech">
+            </div>
+            <h3 className="text-xl font-semibold text-white mb-4 text-tech">
                       {value.title}
-                    </h3>
-                    <p className="text-gray-300">
+            </h3>
+            <p className="text-gray-300">
                       {value.description}
-                    </p>
-                  </div>
+            </p>
+          </div>
                 </div>
               ))}
             </div>
