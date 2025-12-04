@@ -133,22 +133,22 @@ const About = () => {
             {/* Text Content */}
             <div className="flex-1 text-center lg:text-left">
               <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                Growing up by the ocean and later serving in the navy, I developed a strong connection with nature, 
-                discipline, and problem-solving under pressure. After my time in the navy, I studied <span className="text-white font-semibold">agronomic engineering</span> 
-                and <span className="text-white font-semibold">environmental sciences</span>. As I got closer to technology, I became fascinated by how 
-                <span className="text-white font-semibold"> process automation</span> and <span className="text-white font-semibold">data-driven systems</span> can transform workflows 
-                and turn data into meaningful insights that strongly influence final decisions.
+                I grew up by the ocean and later spent time in the navy, which gave me a deep appreciation for nature and a structured way of thinking. 
+                After the navy, I studied <span className="text-white font-semibold">agronomic engineering</span> and <span className="text-white font-semibold">environmental sciences</span>. 
+                It was during this time that I started exploring technology, and I found myself drawn to how 
+                <span className="text-white font-semibold"> automation</span> and <span className="text-white font-semibold">data systems</span> could make complex processes simpler 
+                and help turn information into something useful.
               </p>
               <p className="text-xl text-nature-green-400 font-bold mb-6 leading-relaxed">
                 Curiosity → Data → AI → Impact
               </p>
               <p className="text-lg text-gray-300 leading-relaxed">
-                Today, I'm a <span className="text-white font-semibold">Data Scientist</span> who turns that curiosity into impact. 
-                I combine my background in <span className="text-white font-semibold">green sciences</span> with expertise in 
-                <span className="text-white font-semibold"> machine learning</span>, <span className="text-white font-semibold">time series analysis</span>, 
-                and <span className="text-white font-semibold">end-to-end ML pipelines</span>. At <span className="text-white font-semibold">INESC TEC</span>, 
-                within a <span className="text-white font-semibold">Horizon Europe</span> project, I build predictive models for groundwater forecasting 
-                and water pollution mitigation—transforming complex environmental data into actionable insights for real-world decision making.
+                Now I work as a <span className="text-white font-semibold">Data Scientist</span>, combining what I learned in 
+                <span className="text-white font-semibold"> green sciences</span> with <span className="text-white font-semibold">machine learning</span>, 
+                <span className="text-white font-semibold"> time series analysis</span>, and building <span className="text-white font-semibold">end-to-end ML pipelines</span>. 
+                At <span className="text-white font-semibold">INESC TEC</span>, I'm part of a <span className="text-white font-semibold">Horizon Europe</span> project 
+                where I work on predictive models for groundwater forecasting and water pollution mitigation—taking environmental data and turning it into 
+                something that can actually help with real decisions.
               </p>
             </div>
             
