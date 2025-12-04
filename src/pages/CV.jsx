@@ -217,6 +217,20 @@ const CV = () => {
 
   const certificates = [
     {
+      title: "Advanced Learning Algorithms",
+      issuer: "Stanford University",
+      period: "12/2025",
+      description: "Advanced machine learning algorithms and deep learning techniques.",
+      link: ""
+    },
+    {
+      title: "Professional Ethics and Deontology Course (107th edition)",
+      issuer: "Ordem dos Engenheiros - Região Sul",
+      period: "11/2025",
+      description: "Professional ethics and deontology course for engineers.",
+      link: ""
+    },
+    {
       title: "Supervised Machine Learning: Regression and Classification",
       issuer: "Stanford University",
       period: "01/11/2025 – 07/11/2025",
