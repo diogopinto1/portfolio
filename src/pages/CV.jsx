@@ -628,10 +628,10 @@ const CV = () => {
                       href={pub.pdf}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="ml-4 p-2 bg-nature-green-500/20 border border-nature-green-500/40 rounded-lg hover:bg-nature-green-500/30 hover:border-nature-green-400 transition-colors nature-glow flex items-center justify-center group"
+                      className="ml-4 flex items-center justify-center group"
                       title="View PDF"
                     >
-                      <ExternalLink className="w-5 h-5 text-nature-green-400 group-hover:scale-110 transition-transform" />
+                      <ExternalLink className="w-5 h-5 text-nature-green-400 group-hover:scale-110 transition-transform hover:text-nature-green-300" />
                     </a>
                   )}
                 </div>
