@@ -69,7 +69,7 @@ const CV = () => {
       title: "Data Scientist - Master's Thesis",
       company: "HIDROSOPH",
       location: "Lisbon, Portugal",
-      period: "12/2023 – 11/2024",
+      period: "01/2024 – 11/2024",
       description: "Master's Thesis: Intelligent sensory data gap filling - Application of Machine Learning in Irrigation Systems.",
       details: [
         "Developed a Machine Learning pipeline, CRISP-DM methodology, for correcting inconsistencies in IoT sensor data",
