@@ -402,7 +402,7 @@ const CV = () => {
       </section>
 
       {/* Navigation Filter */}
-      <section id="nav-filter" className="sticky top-0 z-50 bg-dark-bg/95 backdrop-blur-sm border-b border-nature-green-500/20 py-4 px-4">
+      <section id="nav-filter" className="sticky top-0 z-40 bg-dark-bg/95 backdrop-blur-sm border-b border-nature-green-500/20 py-4 px-4">
         <div className="max-w-6xl mx-auto">
           <nav className="flex flex-wrap justify-center gap-4 md:gap-6">
             <a
