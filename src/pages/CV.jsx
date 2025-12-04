@@ -204,7 +204,7 @@ const CV = () => {
       year: "2025",
       authors: "Diogo Pinto, Manuel Campagnolo, João Rolim, Maria do Rosário Camedra",
       type: "Poster",
-      pdf: "/poster_DP.pdf"
+      pdf: "/portfolio/poster_DP.pdf"
     },
     {
       title: "Intelligent Sensory Data Gap Filling: Application of Machine Learning in Irrigation Systems",
@@ -229,7 +229,7 @@ const CV = () => {
       period: "11/2025",
       description: "Professional ethics and deontology course for engineers. Completed with Distinction (10 hours total duration).",
       link: "",
-      pdf: "/Certificado_CED_107_Diogo Pinto.pdf"
+      pdf: "/portfolio/Certificado_CED_107_Diogo Pinto.pdf"
     },
     {
       title: "Supervised Machine Learning: Regression and Classification",
