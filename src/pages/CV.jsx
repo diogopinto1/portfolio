@@ -220,8 +220,8 @@ const CV = () => {
       title: "Advanced Learning Algorithms",
       issuer: "Stanford University",
       period: "12/2025",
-      description: "Advanced machine learning algorithms and deep learning techniques.",
-      link: ""
+      description: "Build and train neural networks with TensorFlow for multi-class classification. Apply best practices for machine learning development and build decision trees and tree ensemble methods, including random forests and boosted trees.",
+      link: "https://coursera.org/share/2c21e40a6bfee7c12f186beb37dfbec7"
     },
     {
       title: "Professional Ethics and Deontology Course (107th edition)",
