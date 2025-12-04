@@ -199,6 +199,13 @@ const CV = () => {
 
   const publications = [
     {
+      title: "Development of a Data Pipeline for Groundwater Level Modeling in Irrigation: Application to the Tejo Vulnerable Zone",
+      journal: "Path4Med Project - Horizon Europe",
+      year: "2025",
+      authors: "Diogo Pinto, Manuel Campagnolo, João Rolim, Maria do Rosário Camedra",
+      type: "Poster"
+    },
+    {
       title: "Intelligent Sensory Data Gap Filling: Application of Machine Learning in Irrigation Systems",
       journal: "Master's Thesis - ULisboa ISA",
       year: "2024",
