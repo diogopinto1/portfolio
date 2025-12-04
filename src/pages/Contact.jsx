@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react'
+import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -130,14 +130,6 @@ const Contact = () => {
                 className="w-12 h-12 bg-nature-green-500/20 border border-nature-green-500/40 rounded-full flex items-center justify-center hover:bg-nature-green-500/30 hover:border-nature-green-400 transition-colors nature-glow"
               >
                 <Linkedin className="text-nature-green-400" size={20} />
-              </a>
-              <a
-                href="https://twitter.com/diogopinto"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 bg-nature-green-500/20 border border-nature-green-500/40 rounded-full flex items-center justify-center hover:bg-nature-green-500/30 hover:border-nature-green-400 transition-colors nature-glow"
-              >
-                <Twitter className="text-nature-green-400" size={20} />
               </a>
             </div>
           </div>
