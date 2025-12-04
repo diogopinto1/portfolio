@@ -149,7 +149,7 @@ const Layout = ({ children }) => {
       <footer className="mt-16 border-t border-gray-800">
         <div className="container mx-auto max-w-6xl px-4 py-8">
           <div className="text-center text-gray-400">
-            <p className="text-tech">&copy; 2024 Diogo Pinto. All rights reserved.</p>
+            <p className="text-tech">&copy; 2025 Diogo Pinto. All rights reserved.</p>
           </div>
         </div>
       </footer>
