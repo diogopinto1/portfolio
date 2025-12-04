@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Download, Mail, Linkedin, Github, Calendar, MapPin, Building, Award, BookOpen, Code, Database, Brain, ChevronDown, ChevronUp, Anchor, ExternalLink, ArrowUp, Eye, FileText } from 'lucide-react'
+import { Download, Mail, Linkedin, Github, Calendar, MapPin, Building, Award, BookOpen, Code, Database, Brain, ChevronDown, ChevronUp, Anchor, ExternalLink, ArrowUp } from 'lucide-react'
 
 const CV = () => {
   const [expandedCards, setExpandedCards] = useState({})
@@ -631,7 +631,7 @@ const CV = () => {
                       className="ml-4 p-2 bg-nature-green-500/20 border border-nature-green-500/40 rounded-lg hover:bg-nature-green-500/30 hover:border-nature-green-400 transition-colors nature-glow flex items-center justify-center group"
                       title="View PDF"
                     >
-                      <Eye className="w-5 h-5 text-nature-green-400 group-hover:scale-110 transition-transform" />
+                      <ExternalLink className="w-5 h-5 text-nature-green-400 group-hover:scale-110 transition-transform" />
                     </a>
                   )}
                 </div>
