@@ -91,7 +91,7 @@ const Contact = () => {
                   href="tel:+351926774879"
                   className="text-gray-300 hover:text-white transition-colors"
                 >
-                  (+351) 926 774 879
+                  (+351) <span className="blur-sm">926 774 879</span>
                 </a>
               </div>
             </div>
