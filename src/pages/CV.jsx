@@ -227,8 +227,9 @@ const CV = () => {
       title: "Professional Ethics and Deontology Course (107th edition)",
       issuer: "Ordem dos Engenheiros - Região Sul",
       period: "11/2025",
-      description: "Professional ethics and deontology course for engineers.",
-      link: ""
+      description: "Professional ethics and deontology course for engineers. Completed with Distinction (10 hours total duration).",
+      link: "",
+      pdf: "/Certificado_CED_107_Diogo Pinto.pdf"
     },
     {
       title: "Supervised Machine Learning: Regression and Classification",
@@ -724,16 +725,30 @@ const CV = () => {
                     </div>
                     <p className="text-gray-300 text-sm">{cert.description}</p>
                   </div>
-                  {cert.link && (
-                    <a
-                      href={cert.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="ml-4 text-nature-green-400 hover:text-nature-green-300 transition-colors"
-                    >
-                      <ExternalLink className="w-5 h-5" />
-                    </a>
-                  )}
+                  <div className="ml-4 flex items-center gap-2">
+                    {cert.pdf && (
+                      <a
+                        href={cert.pdf}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center group"
+                        title="View PDF"
+                      >
+                        <ExternalLink className="w-5 h-5 text-nature-green-400 group-hover:scale-110 transition-transform hover:text-nature-green-300" />
+                      </a>
+                    )}
+                    {cert.link && (
+                      <a
+                        href={cert.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-nature-green-400 hover:text-nature-green-300 transition-colors"
+                        title="View Certificate"
+                      >
+                        <ExternalLink className="w-5 h-5" />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
