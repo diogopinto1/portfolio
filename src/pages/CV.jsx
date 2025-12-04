@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { Download, Mail, Linkedin, Github, Calendar, MapPin, Building, Award, BookOpen, Code, Database, Brain, ChevronDown, ChevronUp, Anchor, ExternalLink, ArrowUp } from 'lucide-react'
+import { Download, Mail, Linkedin, Github, Calendar, MapPin, Building, Award, BookOpen, Code, Database, Brain, ChevronDown, ChevronUp, Anchor, ExternalLink, ArrowUp, Eye, FileText } from 'lucide-react'
 
 const CV = () => {
   const [expandedCards, setExpandedCards] = useState({})
@@ -203,7 +203,8 @@ const CV = () => {
       journal: "Path4Med Project - Horizon Europe",
       year: "2025",
       authors: "Diogo Pinto, Manuel Campagnolo, João Rolim, Maria do Rosário Camedra",
-      type: "Poster"
+      type: "Poster",
+      pdf: "/poster_DP.pdf"
     },
     {
       title: "Intelligent Sensory Data Gap Filling: Application of Machine Learning in Irrigation Systems",
@@ -620,7 +621,20 @@ const CV = () => {
           <div className="space-y-6">
             {publications.map((pub, index) => (
               <div key={index} className="nature-card rounded-xl p-6 hover:nature-glow transition-all duration-300">
-                <h3 className="text-lg font-bold text-white mb-2 text-tech">{pub.title}</h3>
+                <div className="flex items-start justify-between mb-2">
+                  <h3 className="text-lg font-bold text-white text-tech flex-1">{pub.title}</h3>
+                  {pub.pdf && (
+                    <a
+                      href={pub.pdf}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ml-4 p-2 bg-nature-green-500/20 border border-nature-green-500/40 rounded-lg hover:bg-nature-green-500/30 hover:border-nature-green-400 transition-colors nature-glow flex items-center justify-center group"
+                      title="View PDF"
+                    >
+                      <Eye className="w-5 h-5 text-nature-green-400 group-hover:scale-110 transition-transform" />
+                    </a>
+                  )}
+                </div>
                 <div className="flex items-center text-nature-green-400 mb-2">
                   <BookOpen className="w-4 h-4 mr-2" />
                   <span className="font-medium">{pub.journal}</span>
