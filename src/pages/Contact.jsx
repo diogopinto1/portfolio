@@ -88,7 +88,7 @@ const Contact = () => {
               <div>
                 <h3 className="font-semibold text-white text-tech">Phone</h3>
                 <p className="text-gray-300">
-                  (+351) <span className="blur-sm">926774888</span>
+                  (+351) <span className="blur-[1.5px]">926774888</span>
                 </p>
               </div>
             </div>
