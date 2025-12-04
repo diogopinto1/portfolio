@@ -68,7 +68,7 @@ const Layout = ({ children }) => {
             {/* Action Buttons */}
             <div className="hidden md:flex items-center space-x-4">
               <a
-                href="/portfolio/diogopinto_cv.pdf"
+                href="/portfolio/cv_europass_dp.pdf"
                 download
                 className="flex items-center px-4 py-2 bg-tech-surface text-gray-300 hover:text-white transition-colors rounded-lg border border-gray-700 hover:border-nature-green-400"
               >

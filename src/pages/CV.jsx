@@ -373,7 +373,7 @@ const CV = () => {
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/portfolio/diogopinto_cv.pdf"
+              href="/portfolio/cv_europass_dp.pdf"
               download
               className="inline-flex items-center px-8 py-4 bg-nature-green-500 text-white font-semibold rounded-lg hover:bg-nature-green-600 transition-all duration-300 nature-glow hover:scale-105"
             >
